@@ -23,7 +23,7 @@ cd Singularity/
 
 This macro download the current release of sPHENIX Singularity container and nightly build libs. If there is already a download, only updates will be transmitted. 
 
-Currently we use the RCF ```rftpexp``` sftp servers for the download, which will prompt for RCF user password and will be slow (due to number of files). The total download size is about 20 GB. Optimization with webpage based package download is expected later. 
+Currently we use the RCF ```rftpexp``` sftp servers for the download, which will prompt for RCF user password and will be slow (due to number of files). The total download size is about 20 GB. Optimizations with webpage based package download is expected later. 
 
 4. Enter the Singularity container 
 
@@ -32,7 +32,7 @@ singularity shell -B afs:/afs rhic_sl7_ext.simg
 source /opt/sphenix/core/bin/sphenix_setup.sh -n   # setup sPHENIX environment in the singularity container shell
 ```
 
-This bring up a shell environment which is identical to sPHENIX RCF. Meanwhile, it use your local file system for non-system file managements. Singularity container also support running in the [command mode or background mode](https://www.sylabs.io/guides/2.5.1/user-guide/quick_start.html#interact-with-images). 
+This bring up a shell environment which is identical to sPHENIX RCF. Meanwhile, it use your local file system for non-system files, e.g. it directly work on your code or data directories. Singularity container also support running in the [command mode or background mode](https://www.sylabs.io/guides/2.5.1/user-guide/quick_start.html#interact-with-images). 
 
 5. Run [the sPHENIX simulation tutorial](https://github.com/sPHENIX-Collaboration/macros)
 
