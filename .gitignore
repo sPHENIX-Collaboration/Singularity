@@ -1,3 +1,7 @@
+# Singularity downloads
+afs
+*.simg
+
 # Prerequisites
 *.d
 
