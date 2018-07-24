@@ -36,5 +36,6 @@ This bring up a shell environment which is identical to sPHENIX RCF. Meanwhile, 
 
 5. Run [the sPHENIX simulation tutorial](https://github.com/sPHENIX-Collaboration/macros)
 
+6. To get daily build update, run the download/update macro [updatebuild.sh](./updatebuild.sh) to sync build files again. 
 
 
