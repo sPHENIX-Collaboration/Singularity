@@ -6,7 +6,7 @@ This repository include the launcher and local update macro for the sPHENIX Sing
 
 # Get Started
 
-1. On your local system, install [Singularity v2.5 or higher version](https://www.sylabs.io/guides/2.5.1/user-guide/quick_start.html#installation)
+1. On your local system, install [Singularity v2.5](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation)
 
 2. Download this repository:
 
