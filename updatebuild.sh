@@ -22,6 +22,11 @@ if [ ! -d afs/rhic.bnl.gov/sphenix/new ]; then
     ln -svfb sys/x8664_sl7/new afs/rhic.bnl.gov/sphenix/new
 fi
 
+if [ ! -d afs/rhic.bnl.gov/opt ]; then
+    ln -svfb x8664_sl7/opt afs/rhic.bnl.gov/opt
+fi
+
+
 echo "--------------------------------------------------------"
 echo "Done! To run the sPHENIX container in shell mode:"
 echo ""
