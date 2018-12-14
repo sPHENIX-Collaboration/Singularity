@@ -29,7 +29,7 @@ Currently we use the RCF ```rftpexp``` sftp servers for the download, which will
 4. Enter the Singularity container 
 
 ```
-singularity shell -B cvmfs:/cvmfs /cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.simg
+singularity shell -B cvmfs:/cvmfs cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.simg
 source /opt/sphenix/core/bin/sphenix_setup.sh -n   # setup sPHENIX environment in the singularity container shell
 ```
 
