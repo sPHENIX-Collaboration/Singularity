@@ -6,7 +6,8 @@ This repository include the launcher and local update macro for the sPHENIX Sing
 
 # Get Started
 
-1. On your local system, install [Singularity v2.5](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation)
+1. On your local system, install [Singularity v2.5](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation). 
+*Note: the current RCF image is built under Singularity v2.5.0. Newer version of Singularity may be imcompatible to load this image.*
 
 2. Download this repository:
 
@@ -28,7 +29,7 @@ Currently we use the RCF ```rftpexp``` sftp servers for the download, which will
 4. Enter the Singularity container 
 
 ```
-singularity shell -B afs:/afs rhic_sl7_ext.simg
+singularity shell -B cvmfs:/cvmfs /cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.simg
 source /opt/sphenix/core/bin/sphenix_setup.sh -n   # setup sPHENIX environment in the singularity container shell
 ```
 

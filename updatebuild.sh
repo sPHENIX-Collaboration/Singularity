@@ -1,38 +1,39 @@
 #!/bin/bash
 
-echo "Downloading the sPHENIX container and lib files to the current folder: $PWD" 
+echo "--------------------------------------------------------"
+echo "This macro download/update sPHENIX builds to ./cvmfs/sphenix.sdcc.bnl.gov"
+echo ""
+echo "If you have CVMFS directly mounted on your computer,"
+echo "you can skip this download and mount /cvmfs/sphenix.sdcc.bnl.gov to singularity directly."
+echo "--------------------------------------------------------"
 
-rsync -aLv  --info=progress2 rftpexp.rhic.bnl.gov:/phenix/u/jinhuang/links/sPHENIX_work/Singularity/rhic_sl7_ext.simg ./
+mkdir -pv cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/release
+
+echo "--------------------------------------------------------"
+echo "Downloading the sPHENIX container and lib files to cvmfs/sphenix.sdcc.bnl.gov/" 
+echo "--------------------------------------------------------"
+
+rsync -aL  --progress rftpexp.rhic.bnl.gov:/cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.simg cvmfs/sphenix.sdcc.bnl.gov/singularity/
 
 echo "--------------------------------------------------------"
 echo "Downloading /afs/rhic.bnl.gov/x8664_sl7/opt/sphenix/"
 echo "--------------------------------------------------------"
 
-mkdir -pv afs/rhic.bnl.gov/x8664_sl7/opt/sphenix/
-rsync -al --delete --info=progress2 rftpexp.rhic.bnl.gov:/afs/rhic.bnl.gov/x8664_sl7/opt/sphenix/ afs/rhic.bnl.gov/x8664_sl7/opt/sphenix/ ;
+rsync -al --delete --progress rftpexp.rhic.bnl.gov:/cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/opt cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/ ;
 
 echo "--------------------------------------------------------"
 echo "Downloading /afs/rhic.bnl.gov/sphenix/sys/x8664_sl7/new/"
 echo "--------------------------------------------------------"
 
-mkdir -pv afs/rhic.bnl.gov/sphenix/sys/x8664_sl7/
-rsync -al --delete --info=progress2 rftpexp.rhic.bnl.gov:/afs/rhic.bnl.gov/sphenix/sys/x8664_sl7/new/ afs/rhic.bnl.gov/sphenix/sys/x8664_sl7/new/ ;
-
-if [ ! -d afs/rhic.bnl.gov/sphenix/new ]; then
-    ln -svfb sys/x8664_sl7/new afs/rhic.bnl.gov/sphenix/new
-fi
-
-if [ ! -d afs/rhic.bnl.gov/opt ]; then
-    ln -svfb x8664_sl7/opt afs/rhic.bnl.gov/opt
-fi
-
+rsync -al --delete --progress rftpexp.rhic.bnl.gov:/cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/release/new/ cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/release/new/;
 
 echo "--------------------------------------------------------"
 echo "Done! To run the sPHENIX container in shell mode:"
 echo ""
-echo "singularity shell -B afs:/afs rhic_sl7_ext.simg"
+echo "singularity shell -B cvmfs:/cvmfs /cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.simg"
 echo ""
 echo "More on singularity tutorials: https://www.sylabs.io/docs/"
+echo "More on directly mounting cvmfs instead of downloading: https://github.com/sPHENIX-Collaboration/singularity"
 echo "--------------------------------------------------------"
 
 
