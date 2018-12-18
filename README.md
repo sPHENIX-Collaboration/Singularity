@@ -8,7 +8,7 @@ This repository includes the instruction and local update macro for the sPHENIX 
 
 sPHENIX software can be obtained to your local computing environment in two ways: 
 
-1. Option 1, **Mount sPHENIX CVMFS**: sPHENIX container, software and builds are distribute on [https://www.racf.bnl.gov/docs/services/cvmfs/info CVMFS] since Nov 2018. Like RCF/SDCC computing cluster at BNL, external collaborating computing center could also mount the `/cvmfs/sphenix.sdcc.bnl.gov/` CVMFS repository, which automatically obtain, buffer and update all sPHENIX build files.
+1. Option 1, **Mount sPHENIX CVMFS**: sPHENIX container, software and builds are distribute on [CVMFS](https://www.racf.bnl.gov/docs/services/cvmfs/info) since Nov 2018. Like RCF/SDCC computing cluster at BNL, external collaborating computing center could also mount the `/cvmfs/sphenix.sdcc.bnl.gov/` CVMFS repository, which automatically obtain, buffer and update all sPHENIX build files.
 2. Option 2, **Download sPHENIX build via ssh**: one can also directly download the files for sPHENIX build to a local folder via ssh. 
 
 The advantage of **Mount sPHENIX CVMFS** is that it mounts all sPHENIX builds and software and perform automatic caching and updates. This would be suitable for the case of a computing center or server environment. However, it require network connection to function. Therefore, if you wish to use sPHENIX software on laptop during travel, **Downloading sPHENIX build via ssh** would work best. 
