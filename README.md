@@ -84,10 +84,10 @@ root # give a test
 After entering the Singularity container, you can source sPHENIX environment and interact with it in the same way as on RCF: 
 
 ```
-computer:~/> singularity shell -B /cvmfs:/cvmfs /cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.simg
+computer:~/> singularity shell <options depending on which of the two downloading options above>
 Singularity: Invoking an interactive shell within container...
 Singularity rhic_sl7_ext.simg:~/> source /opt/sphenix/core/bin/sphenix_setup.sh -n
-Singularity rhic_sl7_ext.simg:~/> lsb_release  -a
+Singularity rhic_sl7_ext.simg:~/> lsb_release  -a         # Verify same environment shows up as that on RCF
 LSB Version:	:core-4.1-amd64:core-4.1-ia32:core-4.1-noarch
 Distributor ID:	Scientific
 Description:	Scientific Linux release 7.3 (Nitrogen)
@@ -97,7 +97,8 @@ Codename:	Nitrogen
 
 This bring up a shell environment which is identical to sPHENIX RCF. Meanwhile, it use your local file system for non-system files, e.g. it directly work on your code or data directories. Singularity container also support running in the [command mode or background mode](https://www.sylabs.io/guides/2.5.1/user-guide/quick_start.html#interact-with-images). 
 
-Next, please try [the sPHENIX simulation tutorial](https://github.com/sPHENIX-Collaboration/macros). *Note the container is built for batch computing. It could be tricky to bring 3D accelerated graphics for Geant4 display.* 
+Next, please try [the sPHENIX simulation tutorial](https://github.com/sPHENIX-Collaboration/macros). 
+*Note, the container is built for batch computing. It could be tricky to bring up 3D-accelerated graphics for Geant4 display, in particular on MAC.* 
 
 Please discuss on [sPHENIX software email list](https://lists.bnl.gov/mailman/listinfo/sphenix-software-l) and [meeting](https://indico.bnl.gov/categoryDisplay.py?categId=88) regarding any question or suggestion.
 
