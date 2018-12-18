@@ -46,7 +46,7 @@ root # give a test
 
 ## Option 2: Download sPHENIX build via ssh
 
-**Note: this option is still been worked on by confining the RCF `rftpexp` ssh server to mount CVMFS. Following is the expected steps after this ticket is resolved at RCF.**
+**Note: this option is still been worked on by confining the RCF `rftpexp` ssh server to mount CVMFS. Following is the expected steps after this ticket is resolved at RCF. The current working solution is via [Downloading the AFS distribution](https://github.com/sPHENIX-Collaboration/Singularity/tree/AFS)**
 
 1. On your local system, install [Singularity v2.5](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation). 
 *Note: the current RCF image is built under Singularity v2.5.0. Newer version of Singularity may be incompatible to load this image.*
