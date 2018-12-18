@@ -97,7 +97,7 @@ Codename:	Nitrogen
 
 This bring up a shell environment which is identical to sPHENIX RCF. Meanwhile, it use your local file system for non-system files, e.g. it directly work on your code or data directories. Singularity container also support running in the [command mode or background mode](https://www.sylabs.io/guides/2.5.1/user-guide/quick_start.html#interact-with-images). 
 
-Next, please try [the sPHENIX simulation tutorial](https://github.com/sPHENIX-Collaboration/macros). 
+Next, please try [the sPHENIX simulation tutorial](https://github.com/sPHENIX-Collaboration/macros). *Note the container is built for batch computing. It could be tricky to bring 3D accelerated graphics for Geant4 display.* 
 
 Please discuss on [sPHENIX software email list](https://lists.bnl.gov/mailman/listinfo/sphenix-software-l) and [meeting](https://indico.bnl.gov/categoryDisplay.py?categId=88) regarding any question or suggestion.
 
