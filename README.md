@@ -36,6 +36,8 @@ This bring up a shell environment which is identical to sPHENIX RCF. Meanwhile, 
 
 5. Run [the sPHENIX simulation tutorial](https://github.com/sPHENIX-Collaboration/macros)
 
+*Note, the container is built for batch computing. It could be tricky to bring up 3D-accelerated graphics for Geant4 display, in particular on MAC. Meanwhile, John H. did developped [a note on how to get the 3D graphics working on MAC](https://indico.bnl.gov/event/4046/contributions/25558/attachments/21219/28796/singularity_mac_haggerty_20181217.pdf).* 
+
 6. To get daily build update, run the download/update macro [updatebuild.sh](./updatebuild.sh) to sync build files again. 
 
 
