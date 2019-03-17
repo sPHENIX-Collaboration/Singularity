@@ -13,7 +13,7 @@ echo "If you have CVMFS directly mounted on your computer,"
 echo "you can skip this download and mount /cvmfs/sphenix.sdcc.bnl.gov to singularity directly."
 echo "--------------------------------------------------------"
 
-mkdir -pv cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/release
+mkdir -p cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/release
 
 echo "--------------------------------------------------------"
 echo "Downloading ${URLBase}/rhic_sl7_ext.simg -> ${DownloadBase}/singularity/ ..."
