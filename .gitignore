@@ -2,6 +2,10 @@
 afs
 *.simg
 
+# cvmfs download
+cvmfs
+0
+
 # Prerequisites
 *.d
 
