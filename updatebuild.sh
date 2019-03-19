@@ -4,7 +4,7 @@
 build='new';
 # build='root6';
 URLBase='https://www.phenix.bnl.gov/WWW/publish/phnxbld/sPHENIX/Singularity/';
-DownloadBase='cvmfs/sphenix.sdcc.bnl.gov/';
+DownloadBase='cvmfs/sphenix.sdcc.bnl.gov';
 
 # Parse input parameter
 for i in "$@"
@@ -30,13 +30,11 @@ case $i in
 esac
 done
 
-echo "--------------------------------------------------------"
 echo "This macro download/update sPHENIX ${build} build to $DownloadBase"
 echo "Source is at $URLBase"
 echo ""
-echo "If you have CVMFS directly mounted on your computer,"
-echo "you can skip this download and mount /cvmfs/sphenix.sdcc.bnl.gov to singularity directly."
-echo "--------------------------------------------------------"
+echo "If you have CVMFS file system directly mounted on your computer,"
+echo "you can skip this download and mount /cvmfs/sphenix.sdcc.bnl.gov to the singularity container directly."
 
 
 #cache check function
@@ -64,8 +62,8 @@ md5_check ()
 
 echo "--------------------------------------------------------"
 echo "Singularity image"
-echo "${URLBase}/rhic_sl7_ext.simg -> ${DownloadBase}/singularity/"
 echo "--------------------------------------------------------"
+#echo "${URLBase}/rhic_sl7_ext.simg -> ${DownloadBase}/singularity/"
 
 mkdir -p ${DownloadBase}/singularity
 
@@ -77,6 +75,8 @@ if [ $? != 0 ]; then
 	curl -ks ${URLBase}/rhic_sl7_ext.simg.md5 > ${DownloadBase}/singularity/rhic_sl7_ext.simg.md5
 else
 	echo "${URLBase}/rhic_sl7_ext.simg has not changed since the last download"
+	echo "- Its md5 sum is ${DownloadBase}/singularity/rhic_sl7_ext.simg.md5 : " `cat ${DownloadBase}/singularity/rhic_sl7_ext.simg.md5`
+	
 fi
 
 
@@ -93,14 +93,17 @@ mkdir -p ${DownloadBase}/.md5/${build}/
 for tarball in "${images[@]}"
 do
 	# echo "Downloading and decompress ${URLBase}/${build}/${tarball} ..."
+
+	md5file="${DownloadBase}/.md5/${build}/${tarball}.md5";
 	
-	md5_check ${URLBase}/${build}/${tarball}.md5 ${DownloadBase}/.md5/${build}/${tarball}.md5
+	md5_check ${URLBase}/${build}/${tarball}.md5 ${md5file}
 	if [ $? != 0 ]; then
 		echo "Downloading ${URLBase}/${build}/${tarball} -> ${DownloadBase} ..."
 		curl -k ${URLBase}/${build}/${tarball} | tar xjf -  
-		curl -ks ${URLBase}/${build}/${tarball}.md5 > ${DownloadBase}/.md5/${build}/${tarball}.md5
+		curl -ks ${URLBase}/${build}/${tarball}.md5 > ${md5file}
 	else
 		echo "${URLBase}/${build}/${tarball} has not changed since the last download"
+		echo "- Its md5 sum is ${md5file} : " `cat ${md5file}`		
 	fi
 
 done
