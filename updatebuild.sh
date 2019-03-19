@@ -5,6 +5,7 @@ build='new';
 # build='root6';
 URLBase='https://www.phenix.bnl.gov/WWW/publish/phnxbld/sPHENIX/Singularity/';
 DownloadBase='cvmfs/sphenix.sdcc.bnl.gov';
+CleanDownload=0
 
 # Parse input parameter
 for i in "$@"
@@ -22,8 +23,12 @@ case $i in
     DownloadBase="${i#*=}"
     shift # past argument=value
     ;;
+    -c|--clean)
+    CleanDownload=1
+    shift # past argument=value
+    ;;
     --help|-h|*)
-    echo "Usage: $0 [--build=<new|root6>] [--source=URL] [--target=directory]";
+    echo "Usage: $0 [--build=<new|root6>] [--source=URL] [--target=directory] [--clean]";
     exit;
     shift # past argument with no value
     ;;
@@ -35,7 +40,6 @@ echo "Source is at $URLBase"
 echo ""
 echo "If you have CVMFS file system directly mounted on your computer,"
 echo "you can skip this download and mount /cvmfs/sphenix.sdcc.bnl.gov to the singularity container directly."
-
 
 #cache check function
 md5_check ()
@@ -57,6 +61,23 @@ md5_check ()
 	fi
 	return 1;
 }
+
+
+if [ $CleanDownload!=0 ]; then
+
+	echo "--------------------------------------------------------"
+	echo "Clean up older download"
+	echo "--------------------------------------------------------"
+
+	if [ -d "$DownloadBase" ]; then
+		echo "First, wiping out previous download at $DownloadBase ..."
+
+		/bin/rm -rf $DownloadBase
+	else
+		echo "Previous download folder is empty: $DownloadBase"
+	fi
+
+fi
 
 
 
