@@ -5,7 +5,7 @@ build='new';
 # build='root6';
 URLBase='https://www.phenix.bnl.gov/WWW/publish/phnxbld/sPHENIX/Singularity/';
 DownloadBase='cvmfs/sphenix.sdcc.bnl.gov';
-CleanDownload=0
+CleanDownload=false
 
 # Parse input parameter
 for i in "$@"
@@ -24,7 +24,7 @@ case $i in
     shift # past argument=value
     ;;
     -c|--clean)
-    CleanDownload=1
+    CleanDownload=true
     shift # past argument=value
     ;;
     --help|-h|*)
@@ -63,7 +63,7 @@ md5_check ()
 }
 
 
-if [ $CleanDownload!=0 ]; then
+if [ $CleanDownload = true ]; then
 
 	echo "--------------------------------------------------------"
 	echo "Clean up older download"
@@ -79,7 +79,7 @@ if [ $CleanDownload!=0 ]; then
 
 fi
 
-
+exit;
 
 echo "--------------------------------------------------------"
 echo "Singularity image"
