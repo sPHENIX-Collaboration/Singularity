@@ -38,46 +38,73 @@ echo "If you have CVMFS directly mounted on your computer,"
 echo "you can skip this download and mount /cvmfs/sphenix.sdcc.bnl.gov to singularity directly."
 echo "--------------------------------------------------------"
 
-mkdir -p cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/release
+
+#cache check function
+md5_check ()
+{
+	local target_file=$1
+	local md5_cache=$2
+	local new_md5=`curl -ks $target_file`
+	# echo "new_md5 : $new_md5 ..."
+
+	# echo "searching for $md5_cache ..."
+
+	if [ -f $md5_cache ]; then
+		# echo "verifying $md5_cache ..."
+		local md5_cache=`cat $md5_cache`
+		if [ "$md5_cache" = "$new_md5" ]; then
+			# echo "$target_file has not changed since the last download"
+			return 0;
+		fi
+	fi
+	return 1;
+}
+
+
 
 echo "--------------------------------------------------------"
-echo "Downloading ${URLBase}/rhic_sl7_ext.simg -> ${DownloadBase}/singularity/ ..."
+echo "Singularity image"
+echo "${URLBase}/rhic_sl7_ext.simg -> ${DownloadBase}/singularity/"
 echo "--------------------------------------------------------"
 
-# rsync -aL  --progress rftpexp.rhic.bnl.gov:/cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.simg cvmfs/sphenix.sdcc.bnl.gov/singularity/
-wget -N --no-check-certificate --directory-prefix=${DownloadBase}/singularity/ ${URLBase}/rhic_sl7_ext.simg
+mkdir -p ${DownloadBase}/singularity
 
-echo "--------------------------------------------------------"
-echo "Downloading and decompress ${DownloadBase}/ ${URLBase}/${build}/opt.tar.bz2 "
-echo "This might take a while ...."
-echo "--------------------------------------------------------"
+md5_check ${URLBase}/rhic_sl7_ext.simg.md5 ${DownloadBase}/singularity/rhic_sl7_ext.simg.md5
 
-# rsync -al --delete --progress rftpexp.rhic.bnl.gov:/cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/opt cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/ ;
-# https://www.phenix.bnl.gov/phenix/WWW/publish/phnxbld/sPHENIX/Singularity/new/opt.tar.bz2
+if [ $? != 0 ]; then
+	echo "Downloading ${URLBase}/rhic_sl7_ext.simg -> ${DownloadBase}/singularity/ ..."
+	curl -k ${URLBase}/rhic_sl7_ext.simg > ${DownloadBase}/singularity/rhic_sl7_ext.simg 
+	curl -ks ${URLBase}/rhic_sl7_ext.simg.md5 > ${DownloadBase}/singularity/rhic_sl7_ext.simg.md5
+else
+	echo "${URLBase}/rhic_sl7_ext.simg has not changed since the last download"
+fi
 
-wget --quiet --no-check-certificate --directory-prefix=${DownloadBase}/ ${URLBase}/${build}/opt.tar.bz2 -O- | tar xjf -  
-# Or buffer the tar file
-# wget -N --no-check-certificate --directory-prefix=${DownloadBase}/ ${URLBase}/${build}/opt.tar.bz2
-# tar xjfv cvmfs/sphenix.sdcc.bnl.gov/opt.tar.bz2  
 
 
 echo "--------------------------------------------------------"
-echo "Downloading and decompress ${DownloadBase}/ ${URLBase}/${build}/offline_main.tar.bz2 "
-echo "This might take a while too ...."
+echo "sPHENIX build images"
 echo "--------------------------------------------------------"
 
-# rsync -al --delete --progress rftpexp.rhic.bnl.gov:/cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/release/new/ cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/release/new/;
-# https://www.phenix.bnl.gov/phenix/WWW/publish/phnxbld/sPHENIX/Singularity/new/offline_main.tar.bz2
+declare -a images=("opt.tar.bz2" "offline_main.tar.bz2" "utils.tar.bz2")
+mkdir -p ${DownloadBase}/.md5/${build}/
 
-wget --quiet --no-check-certificate --directory-prefix=${DownloadBase}/ ${URLBase}/${build}/offline_main.tar.bz2 -O- | tar xjf -  
 
-echo "--------------------------------------------------------"
-echo "Downloading and decompress ${DownloadBase}/ ${URLBase}/${build}/utils.tar.bz2 "
-echo "This might take a while too ...."
-echo "--------------------------------------------------------"
-# https://www.phenix.bnl.gov/phenix/WWW/publish/phnxbld/sPHENIX/Singularity/new/utils.tar.bz2
+## now loop through the above array
+for tarball in "${images[@]}"
+do
+	# echo "Downloading and decompress ${URLBase}/${build}/${tarball} ..."
+	
+	md5_check ${URLBase}/${build}/${tarball}.md5 ${DownloadBase}/.md5/${build}/${tarball}.md5
+	if [ $? != 0 ]; then
+		echo "Downloading ${URLBase}/${build}/${tarball} -> ${DownloadBase}/ ..."
+		curl -k ${URLBase}/${build}/${tarball} | tar xjf -  
+		curl -ks ${URLBase}/${build}/${tarball}.md5 > ${DownloadBase}/.md5/${build}/${tarball}.md5
+	else
+		echo "${URLBase}/${build}/${tarball} has not changed since the last download"
+	fi
 
-wget --quiet --no-check-certificate --directory-prefix=${DownloadBase}/ ${URLBase}/${build}/utils.tar.bz2 -O- | tar xjf -  
+done
+
 
 echo "--------------------------------------------------------"
 echo "Done! To run the sPHENIX container in shell mode:"
