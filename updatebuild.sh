@@ -96,7 +96,7 @@ do
 	
 	md5_check ${URLBase}/${build}/${tarball}.md5 ${DownloadBase}/.md5/${build}/${tarball}.md5
 	if [ $? != 0 ]; then
-		echo "Downloading ${URLBase}/${build}/${tarball} -> ${DownloadBase}/ ..."
+		echo "Downloading ${URLBase}/${build}/${tarball} -> ${DownloadBase} ..."
 		curl -k ${URLBase}/${build}/${tarball} | tar xjf -  
 		curl -ks ${URLBase}/${build}/${tarball}.md5 > ${DownloadBase}/.md5/${build}/${tarball}.md5
 	else
