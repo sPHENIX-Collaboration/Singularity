@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Default parameter
-build='new';
-# build='root6';
+# build='new';
+build='root6';
 URLBase='https://www.phenix.bnl.gov/WWW/publish/phnxbld/sPHENIX/Singularity/';
 DownloadBase='cvmfs/sphenix.sdcc.bnl.gov';
 CleanDownload=false
