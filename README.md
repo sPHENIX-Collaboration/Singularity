@@ -1,5 +1,7 @@
 # Singularity container for sPHENIX
 
+[![Build Status](https://web.racf.bnl.gov/jenkins-sphenix/buildStatus/icon?job=sPHENIX%2Fsingularity-download-validation)](https://web.racf.bnl.gov/jenkins-sphenix/job/sPHENIX/job/singularity-download-validation/)
+
 Singularity container for sPHENIX allow collaborators to run sPHENIX RCF/SDCC environment with sPHENIX nightly builds on your local computers or on external high-performance computing clusters. 
 
 This repository includes the instruction and local update macro for the sPHENIX Singularity container.
