@@ -64,7 +64,7 @@ cd Singularity/
 ./updatebuild.sh
 ```
 
-This macro download the current release of sPHENIX Singularity container and nightly build libs. The total download and decompressed size is about 5 GB. Two build versions are supported with default as the `new` build, as well as the `root5` build with `./updatebuild.sh --build=root5`.
+This macro download the current release of sPHENIX Singularity container and nightly build libs. The total download size is about 5 GB  and decompressed disk usage is about 10 GB. Two build versions are supported with default as the `new` build, as well as the `root5` build with `./updatebuild.sh --build=root5`.
 
 4. Start the container with 
 
