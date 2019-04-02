@@ -1,9 +1,9 @@
-# Singularity container for sPHENIX
-
 **Validations:** `--build=new` 
 [![Build Status](https://web.racf.bnl.gov/jenkins-sphenix/buildStatus/icon?job=sPHENIX%2Fsingularity-download-validation)](https://web.racf.bnl.gov/jenkins-sphenix/job/sPHENIX/job/singularity-download-validation/) , 
 `--build=root5`
 [![Build Status](https://web.racf.bnl.gov/jenkins-sphenix/buildStatus/icon?job=sPHENIX%2Fsingularity-download-validation-root5)](https://web.racf.bnl.gov/jenkins-sphenix/job/sPHENIX/job/singularity-download-validation-root5/)
+
+# Singularity container for sPHENIX
 
 Singularity container for sPHENIX allow collaborators to run sPHENIX RCF/SDCC environment with sPHENIX nightly builds on your local computers or on external high-performance computing clusters. 
 
@@ -102,6 +102,8 @@ Next, please try [the sPHENIX simulation tutorial](https://github.com/sPHENIX-Co
 
 Please discuss on [sPHENIX software email list](https://lists.bnl.gov/mailman/listinfo/sphenix-software-l) and [meeting](https://indico.bnl.gov/categoryDisplay.py?categId=88) regarding any question or suggestion.
 
-*Note, the container is built for batch computing. It could be tricky to bring up 3D-accelerated graphics for Geant4 display, in particular on MAC. Meanwhile, John H. have developped [a note on how to get the 3D graphics working on MAC](https://indico.bnl.gov/event/4046/contributions/25558/attachments/21219/28796/singularity_mac_haggerty_20181217.pdf).* 
+*Note: the container is built for batch computing. It could be tricky to bring up 3D-accelerated graphics for Geant4 display.* 
+* On MAC John H. have developped [a note on how to get the 3D graphics working on MAC](https://indico.bnl.gov/event/4046/contributions/25558/attachments/21219/28796/singularity_mac_haggerty_20181217.pdf). 
+* On Linux, binding local X IPC socket folder to the singularity container could help enabling local 3D acceleration, e.g. `singularity -B /tmp/.X11-unix:/tmp/.X11-unix ....` followed with `setenv DISPLAY unix:0.0` in the container. 
 
 
