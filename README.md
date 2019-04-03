@@ -4,7 +4,7 @@ Singularity container for sPHENIX allow collaborators to run sPHENIX RCF/SDCC en
 
 This repository includes the instruction and local update macro for the sPHENIX Singularity container.
 
-*Validations:* `--build=new` 
+**Validations:** `updatebuild.sh --build=new` 
 [![Build Status](https://web.racf.bnl.gov/jenkins-sphenix/buildStatus/icon?job=sPHENIX%2Fsingularity-download-validation)](https://web.racf.bnl.gov/jenkins-sphenix/job/sPHENIX/job/singularity-download-validation/) , 
 `--build=root5`
 [![Build Status](https://web.racf.bnl.gov/jenkins-sphenix/buildStatus/icon?job=sPHENIX%2Fsingularity-download-validation-root5)](https://web.racf.bnl.gov/jenkins-sphenix/job/sPHENIX/job/singularity-download-validation-root5/)
