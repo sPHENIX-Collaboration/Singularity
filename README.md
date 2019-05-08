@@ -102,14 +102,14 @@ Next, please try [the sPHENIX simulation tutorial](https://github.com/sPHENIX-Co
 
 Please discuss on [sPHENIX software email list](https://lists.bnl.gov/mailman/listinfo/sphenix-software-l) and [meeting](https://indico.bnl.gov/categoryDisplay.py?categId=88) regarding any question or suggestion.
 
-# Trouble shooting
+# Troubleshooting
 
-## 3D accellerated Graphics
+## 3D accelerated Graphics
 
 *Note: the container is built for batch computing. It could be tricky to bring up 3D-accelerated graphics for Geant4 display.* 
-* On MAC John H. have developped [a note on how to get the 3D graphics working on MAC](https://indico.bnl.gov/event/4046/contributions/25558/attachments/21219/28796/singularity_mac_haggerty_20181217.pdf). 
+* On MAC John H. have developed [a note on how to get the 3D graphics working on MAC](https://indico.bnl.gov/event/4046/contributions/25558/attachments/21219/28796/singularity_mac_haggerty_20181217.pdf). 
 * On Linux, binding local X IPC socket folder to the singularity container could help enabling local 3D acceleration, e.g. `singularity -B /tmp/.X11-unix:/tmp/.X11-unix ....` followed with `setenv DISPLAY unix:0.0` in the container. 
 
 ## Clean download in Option-2
 
-Occationally, local download catch become corrupt, e.g. after a interupted `updatebuild.sh` call. Please clean up the local download buffer by removing the `./cvmfs` folder. Or you can run `./updatebuild.sh --clean <other options>` which force a clean download (default is incremental updates). 
+Occasionally, local download catch become corrupt, e.g. after an interrupted `updatebuild.sh` call. Please clean up the local download buffer by removing the `./cvmfs` folder. Or you can run `./updatebuild.sh --clean <other options>` which force a clean download (default is incremental updates). 
