@@ -106,10 +106,15 @@ Please discuss on [sPHENIX software email list](https://lists.bnl.gov/mailman/li
 
 ## 3D accelerated Graphics
 
-*Note: the container is built for batch computing. It could be tricky to bring up 3D-accelerated graphics for Geant4 display.* 
+The container is built for batch computing. It could be tricky to bring up 3D-accelerated graphics for Geant4 display. 
+* On Linux, binding local X IPC socket folder to the singularity container could help enabling local hardware 3D acceleration, e.g. `singularity -B /tmp/.X11-unix:/tmp/.X11-unix ....` followed with `setenv DISPLAY unix:0.0` in the container. 
 * On MAC John H. have developed [a note on how to get the 3D graphics working on MAC](https://indico.bnl.gov/event/4046/contributions/25558/attachments/21219/28796/singularity_mac_haggerty_20181217.pdf). 
-* On Linux, binding local X IPC socket folder to the singularity container could help enabling local 3D acceleration, e.g. `singularity -B /tmp/.X11-unix:/tmp/.X11-unix ....` followed with `setenv DISPLAY unix:0.0` in the container. 
 
 ## Clean download in Option-2
 
-Occasionally, local download catch become corrupt, e.g. after an interrupted `updatebuild.sh` call. Please clean up the local download buffer by removing the `./cvmfs` folder. Or you can run `./updatebuild.sh --clean <other options>` which force a clean download (default is incremental updates). 
+Occasionally, local download catch cab become corrupt, e.g. after an interrupted `updatebuild.sh` call. If you encounter a problem executing container, it is always useful to first try clean up the local download buffer by removing the `./cvmfs` folder and download again. Or you can run `./updatebuild.sh --clean <other options>` which force a clean download (default is incremental updates). 
+
+If you have RCF credentials, you can also compare your local output with the daily test runs of the default simulation macro in the container following these links: `updatebuild.sh --build=new` 
+[![Build Status](https://web.racf.bnl.gov/jenkins-sphenix/buildStatus/icon?job=sPHENIX%2Fsingularity-download-validation)](https://web.racf.bnl.gov/jenkins-sphenix/job/sPHENIX/job/singularity-download-validation/) , 
+`--build=root5`
+[![Build Status](https://web.racf.bnl.gov/jenkins-sphenix/buildStatus/icon?job=sPHENIX%2Fsingularity-download-validation-root5)](https://web.racf.bnl.gov/jenkins-sphenix/job/sPHENIX/job/singularity-download-validation-root5/)
