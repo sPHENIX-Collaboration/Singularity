@@ -70,11 +70,11 @@ Now its time to get the necessary software on the VM. Execute:
 
 ```
 vagrant@vagrant:~$ sudo apt-get update && \
-  					  sudo apt-get install \
-   					  python \
-    				  dh-autoreconf \
-  					  build-essential \
-  					  libarchive-dev
+  		   sudo apt-get install \
+   		   python \
+    		   dh-autoreconf \
+  		   build-essential \
+  		   libarchive-dev
 ```
 
 This is the equivalent of homebrew on the linux VM that you are logged into, and will get you the necessary packages to install Singularity v2.5.0. Now, somewhat ironically, you are ready for the ["Singularity quick start guide"](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html) to download onto the VM:
@@ -207,7 +207,7 @@ Singularity rhic_sl7_ext.simg:~/Singularity> root -b -l Fun4All_G4_sPHENIX.C
 ## Tips and Tricks
  * Note that you must stay underneath the /Singularity directory in order to access the libraries. All of the libraries get downloaded into the /cvmfs directory. So my suggestion is to create a directory called /git within Singularity, in which you store all of your code from git (e.g. macros, analysis, coresoftware, etc.).
  * You can run the software offline! No internet connection needed.
- * To enable X11 forwarding so that you can actually take a look at rootfiles that you create, you need to do a few more things. I found a solution at the following [link](https://computingforgeeks.com/how-to-enable-and-use-ssh-x11-forwarding-on-vagrant-instances/) - instructions copied here:
+ * To enable X11 forwarding so that you can actually take a look at rootfiles that you create, you need to do a few more things. Note that the following assumes you already have XQuartz installed. I found a solution at the following [link](https://computingforgeeks.com/how-to-enable-and-use-ssh-x11-forwarding-on-vagrant-instances/) - instructions copied here:
  	* On the vagrant machine run `vagrant@vagrant:~$ sudo apt-get install xauth`
  	* Return back to your local computer by typing `vagrant@vagrant:~$ exit`
  	* Stop vagrant `MacBook-Pro-145:singularity-vm Joe$ vagrant halt`
@@ -216,7 +216,7 @@ Singularity rhic_sl7_ext.simg:~/Singularity> root -b -l Fun4All_G4_sPHENIX.C
  	* Boot vagrant back up by executing `vagrant up` and `vagrant ssh`
  	* Log back into the Singularity container with the `singularity shell` command 
  	* I was able to run `xclock &` at the terminal and e.g. open a `TBrowser` in ROOT after this to poke around the TTrees. 
-
+	
 
 
 ## Troubleshooting
