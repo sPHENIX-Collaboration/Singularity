@@ -28,6 +28,8 @@ The advantage of **Mount sPHENIX CVMFS** is that it mounts all sPHENIX builds an
 1. On your local system, install [Singularity v2.5](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation). 
 *Note: the current RCF image is built under Singularity v2.5.0. Newer version of Singularity may be incompatible to load this image.*
 
+   - On Ubuntu systems, one may neet to install automake to run the ./autogen.sh step of Singularity install. If you get a complaint about automake not being installed during this step, install it with: sudo apt-get install libtool m4 automake
+
 2. Install [CVMFS from CERN](https://cernvm.cern.ch/portal/filesystem/quickstart). CERN support build packages under (various Linux distribution and MAC)[https://cernvm.cern.ch/portal/filesystem/downloads].
 
 3. Copy these three configuration and key files to your local computer from RCF (e.g. from any interactive RCF computer nodes):
@@ -53,6 +55,8 @@ singularity shell -B /cvmfs:/cvmfs /cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_
 source /opt/sphenix/core/bin/sphenix_setup.sh -n   # setup sPHENIX environment in the singularity container shell. Note the shell is bash by default
 root # give a test
 ```
+**Please note the slight difference in singularity shell commands for option 1 and option 2
+
 
 ## Option 2: Download sPHENIX build via HTTPS archive
 
@@ -81,6 +85,7 @@ singularity shell -B cvmfs:/cvmfs cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl
 source /opt/sphenix/core/bin/sphenix_setup.sh -n   # setup sPHENIX environment in the singularity container shell. Note the shell is bash by default
 root # give a test
 ```
+**Please note the slight difference in singularity shell commands for option 1 and option 2
 
 5. To get daily build update, run the download/update macro [updatebuild.sh](./updatebuild.sh) to sync build files again. 
 
