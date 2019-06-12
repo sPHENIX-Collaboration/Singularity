@@ -55,7 +55,7 @@ singularity shell -B /cvmfs:/cvmfs /cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_
 source /opt/sphenix/core/bin/sphenix_setup.sh -n   # setup sPHENIX environment in the singularity container shell. Note the shell is bash by default
 root # give a test
 ```
-**Please note the slight difference in singularity shell commands for option 1 and option 2
+*Please note the slight difference in singularity shell commands for option 1 and option 2*
 
 
 ## Option 2: Download sPHENIX build via HTTPS archive
@@ -87,7 +87,7 @@ singularity shell -B cvmfs:/cvmfs cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl
 source /opt/sphenix/core/bin/sphenix_setup.sh -n   # setup sPHENIX environment in the singularity container shell. Note the shell is bash by default
 root # give a test
 ```
-**Please note the slight difference in singularity shell commands for option 1 and option 2
+*Please note the slight difference in singularity shell commands for option 1 and option 2*
 
 5. To get daily build update, run the download/update macro [updatebuild.sh](./updatebuild.sh) to sync build files again. 
 
