@@ -26,9 +26,9 @@ The advantage of **Mount sPHENIX CVMFS** is that it mounts all sPHENIX builds an
 ## Option 1: Mount sPHENIX CVMFS
 
 1. On your local system, install [Singularity v2.5](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation). 
-*Note: the current RCF image is built under Singularity v2.5.0. Newer version of Singularity may be incompatible to load this image.*
 
-   - On Ubuntu systems, one may neet to install automake to run the ./autogen.sh step of Singularity install. If you get a complaint about automake not being installed during this step, install it with: sudo apt-get install libtool m4 automake
+    - *Note 1: the current RCF image is built under Singularity v2.5.0. Newer version of Singularity may be incompatible to load this image.*
+    - *Note 2: Singularity installation may require host to support local compilation. E.g. on Ubuntu, it can be obtained via `sudo apt-get install libtool m4 automake`*
 
 2. Install [CVMFS from CERN](https://cernvm.cern.ch/portal/filesystem/quickstart). CERN support build packages under (various Linux distribution and MAC)[https://cernvm.cern.ch/portal/filesystem/downloads].
 
@@ -61,7 +61,9 @@ root # give a test
 ## Option 2: Download sPHENIX build via HTTPS archive
 
 1. On your local system, install [Singularity v2.5](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation). 
-*Note: the current RCF image is built under Singularity v2.5.0. Newer version of Singularity may be incompatible to load this image.*
+
+    - *Note 1: the current RCF image is built under Singularity v2.5.0. Newer version of Singularity may be incompatible to load this image.*
+    - *Note 2: Singularity installation may require host to support local compilation. E.g. on Ubuntu, it can be obtained via `sudo apt-get install libtool m4 automake`*
 
 2. Download this repository:
 
