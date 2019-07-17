@@ -1,8 +1,8 @@
-# Singularity container for sPHENIX
+# Singularity container for sPHENIX and EIC-sPHENIX
 
-Singularity container for sPHENIX allow collaborators to run sPHENIX RCF/SDCC environment with sPHENIX nightly builds on your local computers or on external high-performance computing clusters. 
+Singularity container for sPHENIX and EIC-sPHENIX allow collaborators to run sPHENIX RCF/SDCC environment with the nightly builds on your local computers or on external high-performance computing clusters. 
 
-This repository includes the instruction and local update macro for the sPHENIX Singularity container.
+This repository includes the instruction and local update macro for this Singularity container.
 
 **Validations:** `updatebuild.sh --build=new` 
 [![Build Status](https://web.racf.bnl.gov/jenkins-sphenix/buildStatus/icon?job=sPHENIX%2Fsingularity-download-validation)](https://web.racf.bnl.gov/jenkins-sphenix/job/sPHENIX/job/singularity-download-validation/) , 
@@ -14,14 +14,14 @@ This repository includes the instruction and local update macro for the sPHENIX 
 [![Doxygen](https://img.shields.io/badge/code%20reference-Doxygen-green.svg)](https://www.phenix.bnl.gov/WWW/sPHENIX/doxygen/html/)
 [![Last Commit](https://img.shields.io/github/last-commit/sPHENIX-Collaboration/Singularity.svg)](https://github.com/sPHENIX-Collaboration/Singularity/commits/master)
 
-# How to download sPHENIX software
+# How to download
 
-sPHENIX software can be obtained to your local computing environment in two ways: 
+sPHENIX and EIC-sPHENIX software can be obtained to your local computing environment in two ways: 
 
 1. Option 1, **Mount sPHENIX CVMFS**: sPHENIX container, software and builds are distribute on [CVMFS](https://www.racf.bnl.gov/docs/services/cvmfs/info) since Nov 2018. Like RCF/SDCC computing cluster at BNL, external collaborating computing center could also mount the `/cvmfs/sphenix.sdcc.bnl.gov/` CVMFS repository, which automatically obtain, buffer and update all sPHENIX build files.
 2. Option 2, **Download sPHENIX build via HTTPS archive**: one can also directly download the files for sPHENIX build to a local folder via [the nightly refreshed HTTPS archive](https://www.phenix.bnl.gov/WWW/publish/phnxbld/sPHENIX/Singularity/). 
 
-The advantage of **Mount sPHENIX CVMFS** is that it mounts all sPHENIX builds and software and perform automatic caching and updates. This would be suitable for the case of a computing center or server environment. However, it require network connection to function. Therefore, if you wish to use sPHENIX software on laptop during travel, **Downloading sPHENIX build via HTTPS archive** would work best. 
+The advantage of **Mount sPHENIX CVMFS** is that it mounts all sPHENIX builds and software and perform automatic caching and updates. This would be suitable for the case of a computing center or server environment. However, it requires constant network connection to function. Therefore, if you wish to use sPHENIX/EIC-sPHENIX software on a laptop during travel, **Downloading sPHENIX build via HTTPS archive** would work best. All download instructions are the same for sPHENIX and EIC-sPHENIX. 
 
 ## Option 1: Mount sPHENIX CVMFS
 
@@ -48,7 +48,7 @@ CVMFS_REPOSITORIES=sphenix.sdcc.bnl.gov
 
    After completing step 2 and 3, please confirm you can read local path `/cvmfs/sphenix.sdcc.bnl.gov/`, which should show same content as that on RCF interactive nodes. 
    
-4. launch singularity container for sPHENIX with following command
+4. launch singularity container for sPHENIX and EIC-sPHENIX with following command
 
 ```
 singularity shell -B /cvmfs:/cvmfs /cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.simg
@@ -78,7 +78,7 @@ cd Singularity/
 ./updatebuild.sh
 ```
 
-This macro download the current release of sPHENIX Singularity container and nightly build libs. The total download size is about 5 GB  and decompressed disk usage is about 10 GB. Two build versions are supported with default as the `new` build, as well as the `root5` build with `./updatebuild.sh --build=root5`.
+This macro download the current release of sPHENIX/EIC-sPHENIX Singularity container and nightly build libs. The total download size is about 5 GB  and decompressed disk usage is about 10 GB. Two build versions are supported with default as the `new` build, as well as the `root5` build with `./updatebuild.sh --build=root5`.
 
 4. Start the container with 
 
