@@ -77,7 +77,7 @@ vagrant@vagrant:~$ sudo apt-get update && \
   		   libarchive-dev
 ```
 
-This is the equivalent of homebrew on the linux VM that you are logged into, and will get you the necessary packages to install Singularity v2.5.0. Now, somewhat ironically, you are ready for the ["Singularity quick start guide"](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html) to download onto the VM:
+This is the equivalent of homebrew on the linux VM that you are logged into, and will get you the necessary packages to install Singularity v2.5.0. Notice that this, and the following, should be performed in the directory `/vagrant`. This directory is shared with your host machine, so it has enough disk space to actually get all of the code etc. Now, somewhat ironically, you are ready for the ["Singularity quick start guide"](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html) to download onto the VM:
 
 ```
 vagrant@vagrant:~$ git clone https://github.com/sylabs/singularity.git
