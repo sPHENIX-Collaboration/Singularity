@@ -60,6 +60,8 @@ root # give a test
 
 ## Option 2: Download sPHENIX build via HTTPS archive
 
+*Note*: although singularity container are supported under [MacOS](#mac-installation) and Windows Linux Subsystem, it runs best under Linux. Therefore, for Windows and Mac user, it would produce most smooth experience to run Option2 within a Linux virtual machine, such as an Unbuntu [VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads).
+
 1. On your local system, install [Singularity v2.5](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation). 
 
     - *Note 1: the current RCF image is built under Singularity v2.5.0. Newer version of Singularity may be incompatible to load this image.*
