@@ -4,7 +4,7 @@ Singularity container for sPHENIX and EIC-sPHENIX allow collaborators to run sPH
 
 This repository includes the instruction and local update macro for this Singularity container.
 
-**Validations:** `updatebuild.sh --build=new` 
+**Daily validations:** `updatebuild.sh --build=new` 
 [![Build Status](https://web.racf.bnl.gov/jenkins-sphenix/buildStatus/icon?job=sPHENIX%2Fsingularity-download-validation)](https://web.racf.bnl.gov/jenkins-sphenix/job/sPHENIX/job/singularity-download-validation/) , 
 `--build=root5`
 [![Build Status](https://web.racf.bnl.gov/jenkins-sphenix/buildStatus/icon?job=sPHENIX%2Fsingularity-download-validation-root5)](https://web.racf.bnl.gov/jenkins-sphenix/job/sPHENIX/job/singularity-download-validation-root5/)
@@ -18,21 +18,24 @@ This repository includes the instruction and local update macro for this Singula
 
 sPHENIX and EIC-sPHENIX software can be obtained to your local computing environment in two ways: 
 
-1. Option 1, **Mount sPHENIX CVMFS**: sPHENIX container, software and builds are distribute on [CVMFS](https://www.racf.bnl.gov/docs/services/cvmfs/info) since Nov 2018. Like RCF/SDCC computing cluster at BNL, external collaborating computing center could also mount the `/cvmfs/sphenix.sdcc.bnl.gov/` CVMFS repository, which automatically obtain, buffer and update all sPHENIX build files.
-2. Option 2, **Download sPHENIX build via HTTPS archive**: one can also directly download the files for sPHENIX build to a local folder via [the nightly refreshed HTTPS archive](https://www.phenix.bnl.gov/WWW/publish/phnxbld/sPHENIX/Singularity/). 
+1. **Option-1 Mount sPHENIX CVMFS**: sPHENIX container, software and builds are distribute on [CVMFS](https://www.racf.bnl.gov/docs/services/cvmfs/info) since Nov 2018. Like RCF/SDCC computing cluster at BNL, external collaborating computing center could also mount the `/cvmfs/sphenix.opensciencegrid.org` (*preferred choice*) or `/cvmfs/sphenix.sdcc.bnl.gov/` CVMFS repository, which automatically obtain, buffer and update all sPHENIX build files. `/cvmfs/sphenix.opensciencegrid.org` is also distributed by default throughout the [Open Science Grid](opensciencegrid.org). 
+2. **Option-2 Download sPHENIX build via HTTPS archive**: one can also directly download the files for sPHENIX build to a local folder via [the nightly refreshed HTTPS archive](https://www.phenix.bnl.gov/WWW/publish/phnxbld/sPHENIX/Singularity/). 
 
-The advantage of **Mount sPHENIX CVMFS** is that it mounts all sPHENIX builds and software and perform automatic caching and updates. This would be suitable for the case of a computing center or server environment. However, it requires constant network connection to function. Therefore, if you wish to use sPHENIX/EIC-sPHENIX software on a laptop during travel, **Downloading sPHENIX build via HTTPS archive** would work best. All download instructions are the same for sPHENIX and EIC-sPHENIX. 
+The advantage of **Option-1 Mount sPHENIX CVMFS** is that it mounts all sPHENIX builds and software and perform automatic caching and updates. This would be suitable for the case of a computing center or server environment. However, it requires constant network connection to function. Therefore, if you wish to use sPHENIX/EIC-sPHENIX software on a laptop during travel, **Option-2 Downloading sPHENIX build via HTTPS archive** would work best. All download instructions are the same for sPHENIX and EIC-sPHENIX. 
 
-## Option 1: Mount sPHENIX CVMFS
+## Option-1: Mount sPHENIX CVMFS
 
-1. On your local system, install [Singularity v2.5](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation). 
+1. On your local system, install [Singularity](https://sylabs.io/singularity/). 
 
-    - *Note 1: the current RCF image is built under Singularity v2.5.0. Newer version of Singularity may be incompatible to load this image.*
-    - *Note 2: Singularity installation may require host to support local compilation. E.g. on Ubuntu, it can be obtained via `sudo apt-get install libtool m4 automake`*
+    - *Note: Singularity installation may require host to support local compilation. E.g. on Ubuntu, it can be obtained via `sudo apt-get install libtool m4 automake`*
 
 2. Install [CVMFS from CERN](https://cernvm.cern.ch/portal/filesystem/quickstart). CERN support build packages under (various Linux distribution and MAC)[https://cernvm.cern.ch/portal/filesystem/downloads].
 
-3. Copy these three configuration and key files to your local computer from RCF (e.g. from any interactive RCF computer nodes):
+    - *Note: for loading `/cvmfs/sphenix.opensciencegrid.org` by default, you may need to add `CVMFS_STRICT_MOUNT=no` to `/etc/cvmfs/default.local`.*
+
+3. [**Optional**] this step only applies to mounting `/cvmfs/sphenix.sdcc.bnl.gov/` in order to reproduce identical CVMFS structure with SDCC/RCF. However, use of `/cvmfs/sphenix.opensciencegrid.org` is more convinient and this step can be skipped. 
+
+Copy these three configuration and key files to your local computer from RCF (e.g. from any interactive RCF computer nodes):
 
 ```
 /etc/cvmfs/keys/sdcc.bnl.gov/sphenix.sdcc.bnl.gov.pub
@@ -50,22 +53,32 @@ CVMFS_REPOSITORIES=sphenix.sdcc.bnl.gov
    
 4. launch singularity container for sPHENIX and EIC-sPHENIX with following command
 
+
+  - For `/cvmfs/sphenix.opensciencegrid.org` users (*preferred choice*):
+
+```
+singularity shell -B /cvmfs:/cvmfs /cvmfs/sphenix.opensciencegrid.org/singularity/rhic_sl7_ext.simg
+source /cvmfs/sphenix.opensciencegrid.org/x8664_sl7/opt/sphenix/core/bin/sphenix_setup.sh -n   # setup sPHENIX environment in the singularity container shell. Note the shell is bash by default
+root # give a test
+```
+
+*For Singularity v3+, in particular CERN computing users: `rhic_sl7_ext.simg` might be slow to load under certain Singularity security settings at your computing center. In that case, please load with an alternative image: `singularity shell -B /cvmfs:/cvmfs /cvmfs/sphenix.opensciencegrid.org/singularity/rhic_sl7_ext`*
+
+  - For `/cvmfs/sphenix.sdcc.bnl.gov` users (*preferred choice*):
+
 ```
 singularity shell -B /cvmfs:/cvmfs /cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.simg
 source /opt/sphenix/core/bin/sphenix_setup.sh -n   # setup sPHENIX environment in the singularity container shell. Note the shell is bash by default
 root # give a test
 ```
-*Please note the slight difference in singularity shell commands for option 1 and option 2*
 
-
-## Option 2: Download sPHENIX build via HTTPS archive
+## Option-2: Download sPHENIX build via HTTPS archive
 
 *Note*: although singularity container are supported under [MacOS](#mac-installation) and Windows Linux Subsystem, it runs best under Linux. Therefore, for Windows and Mac user, it would produce most smooth experience to run Option2 within a Linux virtual machine, such as an Unbuntu [VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads).
 
-1. On your local system, install [Singularity v2.5](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation). 
+1. On your local system, install [Singularity](https://sylabs.io/singularity/). 
 
-    - *Note 1: the current RCF image is built under Singularity v2.5.0. Newer version of Singularity may be incompatible to load this image.*
-    - *Note 2: Singularity installation may require host to support local compilation. E.g. on Ubuntu, it can be obtained via `sudo apt-get install libtool m4 automake`*
+    - *Note: Singularity installation may require host to support local compilation. E.g. on Ubuntu, it can be obtained via `sudo apt-get install libtool m4 automake`*
 
 2. Download this repository:
 
@@ -101,7 +114,9 @@ After entering the Singularity container, you can source sPHENIX environment and
 ```
 computer:~/> singularity shell <options depending on which of the two downloading options above>
 Singularity: Invoking an interactive shell within container...
-Singularity rhic_sl7_ext.simg:~/> source /opt/sphenix/core/bin/sphenix_setup.sh -n
+Singularity rhic_sl7_ext.simg:~/> source /opt/sphenix/core/bin/sphenix_setup.sh -n  
+# or source /cvmfs/sphenix.opensciencegrid.org/x8664_sl7/opt/sphenix/core/bin/sphenix_setup.sh -n # if using sphenix.opensciencegrid.org
+# or source /cvmfs/sphenix.opensciencegrid.org/gcc-8.3/opt/sphenix/core/bin/sphenix_setup.sh -n # if using gcc v8
 Singularity rhic_sl7_ext.simg:~/> lsb_release  -a         # Verify same environment shows up as that on RCF
 LSB Version:	:core-4.1-amd64:core-4.1-ia32:core-4.1-noarch
 Distributor ID:	Scientific
@@ -110,7 +125,7 @@ Release:	7.3
 Codename:	Nitrogen
 ```
 
-This bring up a shell environment which is identical to sPHENIX RCF. Meanwhile, it use your local file system for non-system files, e.g. it directly work on your code or data directories. Singularity container also support running in the [command mode or background mode](https://www.sylabs.io/guides/2.5.1/user-guide/quick_start.html#interact-with-images). 
+This bring up a shell environment which is identical to sPHENIX RCF. Meanwhile, it use your local file system for non-system files, e.g. it directly work on your code or data directories. Singularity container also support running in the [command mode or background mode](https://sylabs.io/docs/). 
 
 Next, please try [the sPHENIX simulation tutorial](https://github.com/sPHENIX-Collaboration/macros). 
 
@@ -118,15 +133,20 @@ Please discuss on [sPHENIX software email list](https://lists.bnl.gov/mailman/li
 
 # Troubleshooting
 
-## MAC installation
+## MacOS installation
 
-Singularity runs under linux OS. But in macOS, it require another layer of virtual machine to generate a linux environment first ([see Singularity docs](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation)). For Mac users, Here is [a more detailed guild on the macOS installation of sPHENIX container](./OSX_installationguide.md).
+Singularity runs under linux OS. But in macOS, it require another layer of virtual machine to generate a linux environment first ([see Singularity docs](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation)). For Mac users, Here is [a more detailed guild on the macOS installation of sPHENIX container](./OSX_installationguide.md). Alternatively, one can choose to run this container [within a Linux VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads).
+
+## Windows installation
+
+The easiest approach is to run this container [within a Linux VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads), which by-pass many Windows compatibility issues. 
 
 ## 3D accelerated Graphics
 
 The container is built for batch computing. It could be tricky to bring up 3D-accelerated graphics for Geant4 display. 
 * On Linux, binding local X IPC socket folder to the singularity container could help enabling local hardware 3D acceleration, e.g. `singularity -B /tmp/.X11-unix:/tmp/.X11-unix ....` followed with `setenv DISPLAY unix:0.0` in the container. 
-* On MAC John H. have developed [a note on how to get the 3D graphics working on MAC](https://indico.bnl.gov/event/4046/contributions/25558/attachments/21219/28796/singularity_mac_haggerty_20181217.pdf). 
+* On MacOS and Windows, accelerated graphics runs well with [a Linux VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads) with graphical acceleration enabled in the VirtualBox. 
+* On MacOS John H. have developed [a note on how to get the 3D graphics working on MAC](https://indico.bnl.gov/event/4046/contributions/25558/attachments/21219/28796/singularity_mac_haggerty_20181217.pdf). 
 
 ## Clean download in Option-2
 
