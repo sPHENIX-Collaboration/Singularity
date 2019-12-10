@@ -33,7 +33,7 @@ The advantage of **Option-1 Mount sPHENIX CVMFS** is that it mounts all sPHENIX 
 
     - *Note: for loading `/cvmfs/sphenix.opensciencegrid.org` by default, you may need to add `CVMFS_STRICT_MOUNT=no` to `/etc/cvmfs/default.local`.*
 
-3. [**Optional**] this step only applies to mounting `/cvmfs/sphenix.sdcc.bnl.gov/` in order to reproduce identical CVMFS structure with SDCC/RCF. However, use of `/cvmfs/sphenix.opensciencegrid.org` is more convinient and this step can be skipped. 
+3. [**Optional**] *this step only applies to mounting `/cvmfs/sphenix.sdcc.bnl.gov/` in order to reproduce identical CVMFS structure with SDCC/RCF. However, use of `/cvmfs/sphenix.opensciencegrid.org` is more convinient and this step can be skipped*. 
 
 Copy these three configuration and key files to your local computer from RCF (e.g. from any interactive RCF computer nodes):
 
@@ -54,7 +54,7 @@ CVMFS_REPOSITORIES=sphenix.sdcc.bnl.gov
 4. launch singularity container for sPHENIX and EIC-sPHENIX with following command
 
 
-  - For `/cvmfs/sphenix.opensciencegrid.org` users (*preferred choice*):
+  - For `/cvmfs/sphenix.opensciencegrid.org` users:
 
 ```
 singularity shell -B /cvmfs:/cvmfs /cvmfs/sphenix.opensciencegrid.org/singularity/rhic_sl7_ext.simg
@@ -64,7 +64,7 @@ root # give a test
 
 *For Singularity v3+, in particular CERN computing users: `rhic_sl7_ext.simg` might be slow to load under certain Singularity security settings at your computing center. In that case, please load with an alternative image: `singularity shell -B /cvmfs:/cvmfs /cvmfs/sphenix.opensciencegrid.org/singularity/rhic_sl7_ext`*
 
-  - For `/cvmfs/sphenix.sdcc.bnl.gov` users (*preferred choice*):
+  - For `/cvmfs/sphenix.sdcc.bnl.gov` users:
 
 ```
 singularity shell -B /cvmfs:/cvmfs /cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.simg
