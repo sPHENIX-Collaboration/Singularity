@@ -33,7 +33,7 @@ The advantage of **Option-1 Mount sPHENIX CVMFS** is that it mounts all sPHENIX 
 
     - *Note: for loading `/cvmfs/sphenix.opensciencegrid.org` by default, you may need to add `CVMFS_STRICT_MOUNT=no` to `/etc/cvmfs/default.local`.*
 
-3. [**Optional**] *this step only applies to mounting `/cvmfs/sphenix.sdcc.bnl.gov/` in order to reproduce identical CVMFS structure with SDCC/RCF. However, use of `/cvmfs/sphenix.opensciencegrid.org` is more convinient and this step can be skipped*. 
+3. [**Optional**] *this step only applies to mounting `/cvmfs/sphenix.sdcc.bnl.gov/` in order to reproduce identical CVMFS structure with SDCC/RCF. However, use of `/cvmfs/sphenix.opensciencegrid.org` is more convenient and this step can be skipped*. 
 
 Copy these three configuration and key files to your local computer from RCF (e.g. from any interactive RCF computer nodes):
 
@@ -139,7 +139,7 @@ Singularity runs under linux OS. But in macOS, it require another layer of virtu
 
 ## Windows installation
 
-The easiest approach is to run this container [within a Linux VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads), which by-pass many Windows compatibility issues. 
+The easiest approach is to install [virtual box](https://www.virtualbox.org/wiki/Downloads) and install the [Virtualbox Image](https://www.phenix.bnl.gov/WWW/publish/phnxbld/sPHENIX/Singularity/index.html) - look at the bottom of the page. This Ubuntu LTS 18.04 based container can run the singularity image and has access to cvmfs.
 
 ## 3D accelerated Graphics
 
