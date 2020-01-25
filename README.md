@@ -139,7 +139,7 @@ Singularity runs under linux OS. But in macOS, it require another layer of virtu
 
 ## Windows installation
 
-The easiest approach is to install [virtual box](https://www.virtualbox.org/wiki/Downloads) and run [this container](https://www.phenix.bnl.gov/WWW/publish/phnxbld). This Ubuntu LTS 18.04 based container can run the singularity image and has access to cvmfs.
+The easiest approach is to install [virtual box](https://www.virtualbox.org/wiki/Downloads) and run [this container](https://www.phenix.bnl.gov/WWW/publish/phnxbld/sPHENIX/Singularity/index.html) - look at the bottom of the page. This Ubuntu LTS 18.04 based container can run the singularity image and has access to cvmfs.
 
 ## 3D accelerated Graphics
 
