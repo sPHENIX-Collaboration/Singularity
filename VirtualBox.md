@@ -41,4 +41,4 @@ Then welcome to follow the default macro tutorials: https://github.com/sPHENIX-C
 
 Please note the first use of a day will be slow, as CVMFS caches files from BNL SDCC over the network. You are also welcome use [Option-2 downloading a build and run the software without internet](/README.md#option-2-download-sphenix-build-via-https-archive). 
 
-
+![Screenshot with Fun4All_G4_EICDetector.C](screenshot.png)
