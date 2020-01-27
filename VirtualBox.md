@@ -27,6 +27,6 @@ Singularity> git clone https://github.com/sPHENIX-Collaboration/macros.git
 ```
 Then welcome to follow the default macro tutorials: https://github.com/sPHENIX-Collaboration/macros . 
 
-Please the first use of a day will be slow, as CVMFS caches files from BNL SDCC over the network. You are also welcome use [Option-2 downloading a build and run the software without internet](/README.md#option-2-download-sphenix-build-via-https-archive). 
+Please note the first use of a day will be slow, as CVMFS caches files from BNL SDCC over the network. You are also welcome use [Option-2 downloading a build and run the software without internet](/README.md#option-2-download-sphenix-build-via-https-archive). 
 
 
