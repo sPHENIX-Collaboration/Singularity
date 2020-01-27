@@ -1,2 +1,2 @@
-# Using sPHENIX and EIC-sPHENIX software with a Ubuntu Virtual Box
+# Using sPHENIX and EIC-sPHENIX software with an Ubuntu Virtual Box
 
