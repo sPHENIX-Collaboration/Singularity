@@ -74,7 +74,7 @@ root # give a test
 
 ## Option-2: Download sPHENIX build via HTTPS archive
 
-*Note*: although singularity container are supported under [MacOS](#mac-installation) and Windows Linux Subsystem, it runs best under Linux. Therefore, for Windows and Mac user, it would produce most smooth experience to run Option2 within a Linux virtual machine, such as an Unbuntu [VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads).
+*Note*: although singularity container are supported under [MacOS](#mac-installation) and Windows Linux Subsystem, it runs best under Linux. Therefore, for Windows and Mac user, it would produce most smooth experience to run Option2 within a Linux virtual machine, such as [an Unbuntu VirtualBox](VirtualBox.md).
 
 1. On your local system, install [Singularity](https://sylabs.io/singularity/). 
 
@@ -135,17 +135,17 @@ Please discuss on [sPHENIX software email list](https://lists.bnl.gov/mailman/li
 
 ## MacOS installation
 
-Singularity runs under linux OS. But in macOS, it require another layer of virtual machine to generate a linux environment first ([see Singularity docs](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation)). For Mac users, Here is [a more detailed guild on the macOS installation of sPHENIX container](./OSX_installationguide.md). Alternatively, one can choose to run this container [within a Linux VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads).
+Singularity runs under linux OS. But in macOS, it require another layer of virtual machine to generate a linux environment first ([see Singularity docs](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation)). For Mac users, Here is [a more detailed guild on the macOS installation of sPHENIX container](./OSX_installationguide.md). Alternatively, one can choose to run this container [within a Linux VirtualBox](VirtualBox.md).
 
 ## Windows installation
 
-The easiest approach is to install [virtual box](https://www.virtualbox.org/wiki/Downloads) and install the [Virtualbox Image](https://www.phenix.bnl.gov/WWW/publish/phnxbld/sPHENIX/Singularity/index.html) - look at the bottom of the page. This Ubuntu LTS 18.04 based container can run the singularity image and has access to cvmfs.
+The easiest approach is to install [Virtual Box](https://www.virtualbox.org/wiki/Downloads) running our [Virtualbox Image](./VirtualBox.md).
 
 ## 3D accelerated Graphics
 
 The container is built for batch computing. It could be tricky to bring up 3D-accelerated graphics for Geant4 display. 
 * On Linux, binding local X IPC socket folder to the singularity container could help enabling local hardware 3D acceleration, e.g. `singularity -B /tmp/.X11-unix:/tmp/.X11-unix ....` followed with `setenv DISPLAY unix:0.0` in the container. 
-* On MacOS and Windows, accelerated graphics runs well with [a Linux VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads) with graphical acceleration enabled in the VirtualBox. 
+* On MacOS and Windows, accelerated graphics runs well with [a Linux VirtualBox](VirtualBox.md) with graphical acceleration enabled in the VirtualBox. 
 * On MacOS John H. have developed [a note on how to get the 3D graphics working on MAC](https://indico.bnl.gov/event/4046/contributions/25558/attachments/21219/28796/singularity_mac_haggerty_20181217.pdf). 
 
 ## Clean download in Option-2
