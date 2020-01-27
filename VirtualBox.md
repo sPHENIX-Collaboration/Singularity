@@ -34,7 +34,6 @@ Singularity> root Fun4All_G4_sPHENIX.C
    ------------------------------------------------------------
   | Welcome to ROOT 6.16/00                  https://root.cern |
 ...
-
 ```
 Then welcome to follow the default macro tutorials: https://github.com/sPHENIX-Collaboration/macros . 
 
