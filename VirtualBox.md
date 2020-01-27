@@ -17,13 +17,24 @@ Then you are good to go. Start the imported Virtual Box. The default user is `fu
 
 Start using it with an Ubuntu terminal:
 ```
-fun4all@Fun4AllSingularity:~$ ./singularity_shell.sh 
+fun4all@Fun4AllSingularity:~$ ./singularity_shell.sh
 entering sPHENIX singularity container on /cvmfs/sphenix.opensciencegrid.org
+
 Singularity> source setup.sh 
 .....
 Using sPHENIX build at /cvmfs/sphenix.opensciencegrid.org/x8664_sl7/release/release_new/new.2
 Local build will be installed at /home/fun4all/install
+
 Singularity> git clone https://github.com/sPHENIX-Collaboration/macros.git
+Cloning into 'macros'...
+...
+
+Singularity> cd macros/macros/g4simulations/
+Singularity> root Fun4All_G4_sPHENIX.C
+   ------------------------------------------------------------
+  | Welcome to ROOT 6.16/00                  https://root.cern |
+...
+
 ```
 Then welcome to follow the default macro tutorials: https://github.com/sPHENIX-Collaboration/macros . 
 
