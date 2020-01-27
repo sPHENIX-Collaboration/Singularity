@@ -23,6 +23,8 @@ sPHENIX and EIC-sPHENIX software can be obtained to your local computing environ
 
 The advantage of **Option-1 Mount sPHENIX CVMFS** is that it mounts all sPHENIX builds and software and perform automatic caching and updates. This would be suitable for the case of a computing center or server environment. However, it requires constant network connection to function. Therefore, if you wish to use sPHENIX/EIC-sPHENIX software on a laptop during travel, **Option-2 Downloading sPHENIX build via HTTPS archive** would work best. All download instructions are the same for sPHENIX and EIC-sPHENIX. 
 
+*Note*: although singularity container are supported under [MacOS](#mac-installation) and Windows Linux Subsystem, it runs best under Linux. Therefore, for Windows and Mac user, it would produce most smooth experience to run Option2 within a Linux virtual machine, such as [an Unbuntu VirtualBox](VirtualBox.md).
+
 ## Option-1: Mount sPHENIX CVMFS
 
 1. On your local system, install [Singularity](https://sylabs.io/singularity/). 
@@ -74,7 +76,6 @@ root # give a test
 
 ## Option-2: Download sPHENIX build via HTTPS archive
 
-*Note*: although singularity container are supported under [MacOS](#mac-installation) and Windows Linux Subsystem, it runs best under Linux. Therefore, for Windows and Mac user, it would produce most smooth experience to run Option2 within a Linux virtual machine, such as [an Unbuntu VirtualBox](VirtualBox.md).
 
 1. On your local system, install [Singularity](https://sylabs.io/singularity/). 
 
@@ -139,7 +140,7 @@ Singularity runs under linux OS. But in macOS, it require another layer of virtu
 
 ## Windows installation
 
-The easiest approach is to install [Virtual Box](https://www.virtualbox.org/wiki/Downloads) running our [Virtualbox Image](./VirtualBox.md).
+The easiest approach is to install [Virtual Box](https://www.virtualbox.org/) running our [Virtualbox Image](./VirtualBox.md).
 
 ## 3D accelerated Graphics
 
