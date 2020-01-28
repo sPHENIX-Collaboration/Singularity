@@ -140,7 +140,7 @@ Singularity runs under linux OS. But in macOS, it require another layer of virtu
 
 ## Windows installation
 
-The easiest approach is to install [Virtual Box](https://www.virtualbox.org/) running our [Virtualbox Image](./VirtualBox.md).
+The easiest approach is to install [Virtual Box](https://www.virtualbox.org/) running our [within a Linux VirtualBox](VirtualBox.md).
 
 ## 3D accelerated Graphics
 
