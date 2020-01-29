@@ -136,7 +136,7 @@ Please discuss on [sPHENIX software email list](https://lists.bnl.gov/mailman/li
 
 ## MacOS installation
 
-Singularity runs under linux OS. But in macOS, it require another layer of virtual machine to generate a linux environment first ([see Singularity docs](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation)). For Mac users, Here is [a more detailed guild on the macOS installation of sPHENIX container](./OSX_installationguide.md). Alternatively, one can choose to run this container [within a Unbuntu VirtualBox](VirtualBox.md).
+Singularity runs under linux OS. But in macOS, it require another layer of virtual machine to generate a linux environment first ([read more on Singularity docs](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation)). The easiest approach would be using the container [within a Unbuntu VirtualBox](VirtualBox.md). Alternatively, Here is [a more detailed guild on the macOS installation of sPHENIX container](./OSX_installationguide.md). 
 
 ## Windows installation
 
