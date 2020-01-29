@@ -8,7 +8,7 @@ On Windows or MacOS PC/laptop though, it could be tricky to run Singularity dire
 
 2. Download [sPHENIX Ubuntu 18.04LTS Image](https://www.phenix.bnl.gov/WWW/publish/phnxbld/sPHENIX/Singularity/Fun4AllSingularityDistribution.ova). The MD5SUM is `87a6464dbae831724bc9eb3b508f2646`.
 
-This image has CVMFS and Singularity3 preinstalled, enabling direct loading all sPHENIX builds via OpenScienceGrid network (i.e. Option-1 of [main documentation]((./README.md))).   
+This image has CVMFS and Singularity3 preinstalled, enabling direct loading all sPHENIX builds via OpenScienceGrid network (i.e. Option-1 of [main documentation](/README.md)).   
 
 3. Import the above image to your virtual box ([HowTs](https://www.google.com/search?q=Virtal+box+import+ova)). Please ensure you have internet connection before the next step (e.g. visit www.bnl.gov from inside the VirtualBox)
 
