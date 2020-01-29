@@ -2,7 +2,9 @@
 
 ### Introduction
 
-There are three steps to the software installation. These instructions are for OSX, since that is what my computer runs. However, the instructions should be similar on Windows and even simpler on a linux machine. There are three basic steps, two if on linux (omitting the first step):
+Singularity runs under linux OS. But in macOS, it require another layer of virtual machine to generate a linux environment first ([read more on Singularity docs](https://www.sylabs.io/guides/2.5/user-guide/quick_start.html#installation)). The easiest approach would be using the container [within a Unbuntu VirtualBox](VirtualBox.md). 
+
+Alternatively, Here is three steps to the software installation using `vagrant`:
 
 	1. Install necessary virtual machine software on
 	   your local computer (OSX or windows) 
@@ -15,7 +17,7 @@ I'll go through each of these steps, with appropriate links. Note that there are
 
 1. [sPHENIX github repo](https://github.com/sPHENIX-Collaboration/singularity)
 
-2. [John Haggerty's instructions](https://indico.bnl.gov/event/4046/contributions/25558/attachments/21219/28796/singularity_mac_haggerty_20181217.pdf)
+2. [John Haggerty's instructions on enabling 3D graphics](https://indico.bnl.gov/event/4046/contributions/25558/attachments/21219/28796/singularity_mac_haggerty_20181217.pdf)
 
 
 
