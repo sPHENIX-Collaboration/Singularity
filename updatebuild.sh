@@ -3,7 +3,8 @@
 # Default parameter
 build='new';
 # build='root5';
-URLBase='https://www.phenix.bnl.gov/WWW/publish/phnxbld/sPHENIX/Singularity/';
+URLBase='https://www.phenix.bnl.gov/WWW/publish/phnxbld/sPHENIX/Singularity';
+sysname='x8664_sl7'
 DownloadBase='cvmfs/sphenix.sdcc.bnl.gov';
 CleanDownload=false
 
@@ -13,6 +14,10 @@ do
 case $i in
     -b=*|--build=*)
     build="${i#*=}"
+    shift # past argument=value
+    ;;
+    --sysname=*)
+    sysname="${i#*=}"
     shift # past argument=value
     ;;
     -s=*|--source=*)
@@ -28,7 +33,7 @@ case $i in
     shift # past argument=value
     ;;
     --help|-h|*)
-    echo "Usage: $0 [--build=<new|root6>] [--source=URL] [--target=directory] [--clean]";
+    echo "Usage: $0 [--build=<new|root5>] [--sysname=<x8664_sl7|gcc-8.3] [--source=URL] [--target=directory] [--clean]";
     exit;
     shift # past argument with no value
     ;;
@@ -39,7 +44,7 @@ echo "This macro download/update sPHENIX ${build} build to $DownloadBase"
 echo "Source is at $URLBase"
 echo ""
 echo "If you have CVMFS file system directly mounted on your computer,"
-echo "you can skip this download and mount /cvmfs/sphenix.sdcc.bnl.gov to the singularity container directly."
+echo "you can skip this download and mount /cvmfs/sphenix.sdcc.bnl.gov or /cvmfs/sphenix.opensciencegrid.org or /cvmfs/eic.opensciencegrid.org to the singularity container directly."
 
 #cache check function
 md5_check ()
@@ -55,7 +60,7 @@ md5_check ()
 		# echo "verifying $md5_cache ..."
 		local md5_cache=`cat $md5_cache`
 		if [ "$md5_cache" = "$new_md5" ]; then
-			# echo "$target_file has not changed since the last download"
+		        # echo "$target_file has not changed since the last download"
 			return 0;
 		fi
 	fi
@@ -115,14 +120,14 @@ do
 
 	md5file="${DownloadBase}/.md5/${build}/${tarball}.md5";
 	
-	md5_check ${URLBase}/${build}/${tarball}.md5 ${md5file}
+	md5_check ${URLBase}/${sysname}/${build}/${tarball}.md5 ${md5file}
 	if [ $? != 0 ]; then
-		echo "Downloading ${URLBase}/${build}/${tarball} -> ${DownloadBase} ..."
-		curl -k ${URLBase}/${build}/${tarball} | tar xjf -  
-		curl -ks ${URLBase}/${build}/${tarball}.md5 > ${md5file}
+		echo "Downloading ${URLBase}/${sysname}/${build}/${tarball} -> ${DownloadBase} ..."
+		curl -k ${URLBase}/${sysname}/${build}/${tarball} | tar xjf -  
+		curl -ks ${URLBase}/${sysname}/${build}/${tarball}.md5 > ${md5file}
 	else
-		echo "${URLBase}/${build}/${tarball} has not changed since the last download"
-		echo "- Its md5 sum is ${md5file} : " `cat ${md5file}`		
+		echo "${URLBase}/${sysname}/${build}/${tarball} has not changed since the last download"
+		echo "- Its md5 sum is ${md5file} : " `cat ${md5file}`
 	fi
 
 done
@@ -132,7 +137,12 @@ echo "--------------------------------------------------------"
 echo "Done! To run the sPHENIX container in shell mode:"
 echo ""
 echo "singularity shell -B cvmfs:/cvmfs cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.simg"
-echo "source /opt/sphenix/core/bin/sphenix_setup.sh -n $build"
+if [ $sysname != 'x8664_sl7' ]
+then
+  echo "source /cvmfs/sphenix.sdcc.bnl.gov/$sysname/opt/sphenix/core/bin/sphenix_setup.sh -n $build"
+else
+  echo "source /opt/sphenix/core/bin/sphenix_setup.sh -n $build"
+fi
 echo ""
 echo "More on singularity tutorials: https://www.sylabs.io/docs/"
 echo "More on directly mounting cvmfs instead of downloading: https://github.com/sPHENIX-Collaboration/singularity"
