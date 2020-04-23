@@ -51,7 +51,7 @@ md5_check ()
 {
 	local target_file=$1
 	local md5_cache=$2
-	local new_md5=`curl -ks $target_file`
+	local new_md5=`curl -H 'Cache-Control: no-cache' -ks $target_file`
 	# echo "new_md5 : $new_md5 ..."
 
 	# echo "searching for $md5_cache ..."
