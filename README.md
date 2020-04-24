@@ -84,7 +84,7 @@ root # give a test
 2. Download this repository:
 
 ```
-git clone git@github.com:sPHENIX-Collaboration/Singularity.git
+git clone https://github.com/sPHENIX-Collaboration/Singularity.git
 cd Singularity/
 ```
 
