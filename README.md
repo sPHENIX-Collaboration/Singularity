@@ -5,9 +5,7 @@ Singularity container for sPHENIX and EIC-sPHENIX allow collaborators to run sPH
 This repository includes the instruction and local update macro for this Singularity container.
 
 **Daily validations:** `updatebuild.sh --build=new` 
-[![Build Status](https://web.racf.bnl.gov/jenkins-sphenix/buildStatus/icon?job=sPHENIX%2Fsingularity-download-validation)](https://web.racf.bnl.gov/jenkins-sphenix/job/sPHENIX/job/singularity-download-validation/) , 
-`--build=root5`
-[![Build Status](https://web.racf.bnl.gov/jenkins-sphenix/buildStatus/icon?job=sPHENIX%2Fsingularity-download-validation-root5)](https://web.racf.bnl.gov/jenkins-sphenix/job/sPHENIX/job/singularity-download-validation-root5/)
+[![Build Status](https://web.racf.bnl.gov/jenkins-sphenix/buildStatus/icon?job=sPHENIX%2Fsingularity-download-validation)](https://web.racf.bnl.gov/jenkins-sphenix/job/sPHENIX/job/singularity-download-validation/) 
 
 [![Macros](https://img.shields.io/badge/standard%20macros-git-green.svg)](https://github.com/sPHENIX-Collaboration/macros)
 [![Tutorials](https://img.shields.io/badge/tutorials-git-green.svg)](https://github.com/sPHENIX-Collaboration/tutorials)
