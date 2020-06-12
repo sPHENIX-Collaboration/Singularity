@@ -95,8 +95,8 @@ md5_check ${URLBase}/rhic_sl7_ext.simg.md5 ${DownloadBase}/singularity/rhic_sl7_
 
 if [ $? != 0 ]; then
 	echo "Downloading ${URLBase}/rhic_sl7_ext.simg -> ${DownloadBase}/singularity/ ..."
-	curl -k ${URLBase}/rhic_sl7_ext.simg > ${DownloadBase}/singularity/rhic_sl7_ext.simg 
-	curl -ks ${URLBase}/rhic_sl7_ext.simg.md5 > ${DownloadBase}/singularity/rhic_sl7_ext.simg.md5
+	curl -H 'Cache-Control: no-cache' -k ${URLBase}/rhic_sl7_ext.simg > ${DownloadBase}/singularity/rhic_sl7_ext.simg
+	curl -H 'Cache-Control: no-cache' -ks ${URLBase}/rhic_sl7_ext.simg.md5 > ${DownloadBase}/singularity/rhic_sl7_ext.simg.md5
 else
 	echo "${URLBase}/rhic_sl7_ext.simg has not changed since the last download"
 	echo "- Its md5 sum is ${DownloadBase}/singularity/rhic_sl7_ext.simg.md5 : " `cat ${DownloadBase}/singularity/rhic_sl7_ext.simg.md5`
@@ -123,8 +123,8 @@ do
 	md5_check ${URLBase}/${sysname}/${build}/${tarball}.md5 ${md5file}
 	if [ $? != 0 ]; then
 		echo "Downloading ${URLBase}/${sysname}/${build}/${tarball} -> ${DownloadBase} ..."
-		curl -k ${URLBase}/${sysname}/${build}/${tarball} | tar xjf -  
-		curl -ks ${URLBase}/${sysname}/${build}/${tarball}.md5 > ${md5file}
+		curl -H 'Cache-Control: no-cache' -k ${URLBase}/${sysname}/${build}/${tarball} | tar xjf -
+		curl -H 'Cache-Control: no-cache' -ks ${URLBase}/${sysname}/${build}/${tarball}.md5 > ${md5file}
 	else
 		echo "${URLBase}/${sysname}/${build}/${tarball} has not changed since the last download"
 		echo "- Its md5 sum is ${md5file} : " `cat ${md5file}`
