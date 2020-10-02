@@ -17,16 +17,22 @@ Then you are good to go. Start the imported Virtual Box. **The Ubuntu VM is set 
 * `~/setup.sh`: source this macro from inside the Singularity container to use the lastest build 
 * `~/install/`: local build folder to be used for `$MYINSTALL` area, which is currently empty
 
+**You need to copy updated versions of these scripts:**
+```
+cp /cvmfs/sphenix.opensciencegrid.org/singularity/scripts/singularity_shell.sh .
+cp /cvmfs/sphenix.opensciencegrid.org/singularity/scripts/setup.sh .
+```
 
 Start using it with an Ubuntu terminal:
 ```
 fun4all@Fun4AllSingularity:~$ ./singularity_shell.sh
-entering sPHENIX singularity container on /cvmfs/sphenix.opensciencegrid.org
+entering the sPHENIX singularity container on /cvmfs/sphenix.opensciencegrid.org
 
 Singularity> source setup.sh 
 .....
-Using sPHENIX build at /cvmfs/sphenix.opensciencegrid.org/x8664_sl7/release/release_new/new.2
+Using the sPHENIX build /cvmfs/sphenix.opensciencegrid.org/x8664_sl7/release/release_new/new.1 (the build version number may be different, it is 1-4)
 Local build will be installed at /home/fun4all/install
+
 
 Singularity> git clone https://github.com/sPHENIX-Collaboration/macros.git
 Cloning into 'macros'...
@@ -40,6 +46,9 @@ Singularity> root Fun4All_G4_sPHENIX.C
 ```
 Then welcome to follow the default macro tutorials: https://github.com/sPHENIX-Collaboration/macros . 
 
-Please note the first use of a day will be slow, as CVMFS caches files from BNL SDCC over the network. You are also welcome use [Option-2 downloading a build and run the software without internet](/README.md#option-2-download-sphenix-build-via-https-archive). 
+Please note the first use of a day will be slow, as CVMFS caches files from BNL SDCC over the network. You are also welcome use [Option-2 downloading a build and run the software without internet](/README.md#option-2-download-sphenix-build-via-https-archive). In this case you have to start the singularity container via
+```
+singularity shell -B cvmfs:/cvmfs cvmfs/sphenix.opensciencegrid.org/singularity/rhic_sl7_ext
+```
 
 ![Screenshot with Fun4All_G4_EICDetector.C](screenshot.png)
