@@ -2,7 +2,7 @@
 
 # Default parameter
 build='new';
-URLBase='https://sphenix.sdcc.bnl.gov/WWW/user/phnxbld/sPHENIX/Singularity';
+URLBase='https://www.phenix.bnl.gov/WWW/publish/phnxbld/sPHENIX/Singularity';
 sysname='x8664_sl7'
 DownloadBase='cvmfs/sphenix.sdcc.bnl.gov';
 CleanDownload=false
