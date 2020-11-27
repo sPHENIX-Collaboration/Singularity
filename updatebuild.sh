@@ -3,7 +3,7 @@
 # Default parameter
 build='new';
 URLBase='https://www.phenix.bnl.gov/WWW/publish/phnxbld/sPHENIX/Singularity';
-sysname='x8664_sl7'
+sysname='gcc-8.3'
 DownloadBase='cvmfs/sphenix.sdcc.bnl.gov';
 CleanDownload=false
 
@@ -32,7 +32,7 @@ do
 	    shift # past argument=value
 	    ;;
 	--help|-h|*)
-	    echo "Usage: $0 [--build=<new>] [--sysname=<x8664_sl7|gcc-8.3>] [--source=URL] [--target=directory] [--clean]";
+	    echo "Usage: $0 [--build=<new>] [--sysname=<gcc-8.3|x8664_sl7>] [--source=URL] [--target=directory] [--clean]";
 	    exit;
 	    shift # past argument with no value
 	    ;;
