@@ -321,4 +321,4 @@ linux-vdso.so.1 =>  (0x00007ffe3b261000)
 
 
 
-Other potentially useful link - the Jenkins tool keeps track of the output from the underlying sPHENIX build every night. One can take a look at the [output](https://web.racf.bnl.gov/jenkins-sphenix/job/sPHENIX/job/singularity-download-validation/72/console) from running the Singularity container from scratch on the RCAS computers, which may provide some helpful feedback to compare to what kind of output you are getting locally.
+Other potentially useful link - the Jenkins tool keeps track of the output from the underlying sPHENIX build every night. One can take a look at the [console output](https://web.sdcc.bnl.gov/jenkins-sphenix/job/sPHENIX/job/singularity-download-validation/) from running the Singularity container from scratch on the RCAS computers, which may provide some helpful feedback to compare to what kind of output you are getting locally.
