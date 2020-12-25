@@ -58,7 +58,7 @@ CVMFS_REPOSITORIES=sphenix.sdcc.bnl.gov
 
 ```
 singularity shell -B /cvmfs:/cvmfs /cvmfs/sphenix.opensciencegrid.org/singularity/rhic_sl7_ext.simg
-source /cvmfs/sphenix.opensciencegrid.org/x8664_sl7/opt/sphenix/core/bin/sphenix_setup.sh -n   # setup sPHENIX environment in the singularity container shell. Note the shell is bash by default
+source /cvmfs/sphenix.opensciencegrid.org/gcc-8.3/opt/sphenix/core/bin/sphenix_setup.sh -n    # setup sPHENIX environment in the singularity container shell. Note the shell is bash by default
 root # give a test
 ```
 
@@ -68,7 +68,7 @@ root # give a test
 
 ```
 singularity shell -B /cvmfs:/cvmfs /cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.simg
-source /opt/sphenix/core/bin/sphenix_setup.sh -n   # setup sPHENIX environment in the singularity container shell. Note the shell is bash by default
+source /cvmfs/sphenix.sdcc.bnl.gov/gcc-8.3/opt/sphenix/core/bin/sphenix_setup.sh -n    # setup sPHENIX environment in the singularity container shell. Note the shell is bash by default
 root # give a test
 ```
 
@@ -99,7 +99,7 @@ This macro download the current release of sPHENIX/EIC-sPHENIX Singularity conta
 
 ```
 singularity shell -B cvmfs:/cvmfs cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.simg
-source /opt/sphenix/core/bin/sphenix_setup.sh -n   # setup sPHENIX environment in the singularity container shell. Note the shell is bash by default
+source /cvmfs/sphenix.sdcc.bnl.gov/gcc-8.3/opt/sphenix/core/bin/sphenix_setup.sh -n   # setup sPHENIX environment in the singularity container shell. Note the shell is bash by default
 root # give a test
 ```
 *Please note the slight difference in singularity shell commands for option 1 and option 2*
@@ -114,9 +114,9 @@ After entering the Singularity container, you can source sPHENIX environment and
 ```
 computer:~/> singularity shell <options depending on which of the two downloading options above>
 Singularity: Invoking an interactive shell within container...
-Singularity rhic_sl7_ext.simg:~/> source /opt/sphenix/core/bin/sphenix_setup.sh -n  
-# or source /cvmfs/sphenix.opensciencegrid.org/x8664_sl7/opt/sphenix/core/bin/sphenix_setup.sh -n # if using sphenix.opensciencegrid.org
-# or source /cvmfs/sphenix.opensciencegrid.org/gcc-8.3/opt/sphenix/core/bin/sphenix_setup.sh -n # if using gcc v8
+Singularity rhic_sl7_ext.simg:~/> source /cvmfs/sphenix.sdcc.bnl.gov/gcc-8.3/opt/sphenix/core/bin/sphenix_setup.sh -n  
+# or source /cvmfs/sphenix.opensciencegrid.org/gcc-8.3/opt/sphenix/core/bin/sphenix_setup.sh -n # if using sphenix.opensciencegrid.org
+# or source /cvmfs/sphenix.opensciencegrid.org/x8664_sl7/opt/sphenix/core/bin/sphenix_setup.sh -n # if using older gcc v4
 Singularity rhic_sl7_ext.simg:~/> lsb_release  -a         # Verify same environment shows up as that on RCF
 LSB Version:	:core-4.1-amd64:core-4.1-ia32:core-4.1-noarch
 Distributor ID:	Scientific
