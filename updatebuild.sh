@@ -183,12 +183,7 @@ echo "--------------------------------------------------------"
 echo "Done! To run the sPHENIX container in shell mode:"
 echo ""
 echo "singularity shell -B cvmfs:/cvmfs cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.simg"
-if [ $sysname != 'x8664_sl7' ]
-then
-  echo "source /cvmfs/sphenix.sdcc.bnl.gov/$sysname/opt/sphenix/core/bin/sphenix_setup.sh -n $build"
-else
-  echo "source /opt/sphenix/core/bin/sphenix_setup.sh -n $build"
-fi
+echo "source /cvmfs/sphenix.sdcc.bnl.gov/$sysname/opt/sphenix/core/bin/sphenix_setup.sh -n $build"
 echo ""
 echo "More on singularity tutorials: https://www.sylabs.io/docs/"
 echo "More on directly mounting cvmfs instead of downloading: https://github.com/sPHENIX-Collaboration/singularity"
