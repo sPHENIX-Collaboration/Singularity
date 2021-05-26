@@ -103,27 +103,6 @@ else
 fi
 
 echo "--------------------------------------------------------"
-echo "Monte Carlos"
-echo "--------------------------------------------------------"
-
-md5_check ${URLBase}/MCEG.tar.bz2.md5 ${DownloadBase}/singularity/MCEG.tar.bz2.md5
-
-if [ $? != 0 ]; then
-    if [ -d ${DownloadBase}/${sysname}/MCEG ]; then
-        echo "deleting old Monte Carlos"
-	rm -rf ${DownloadBase}/${sysname}/MCEG
-    fi
-    echo "Downloading ${URLBase}/MCEG.tar.bz2 -> ${DownloadBase}/singularity/ ..."
-    curl -H 'Cache-Control: no-cache' -k ${URLBase}/MCEG.tar.bz2   | tar xjf -
-    curl -H 'Cache-Control: no-cache' -ks ${URLBase}/MCEG.tar.bz2.md5 > ${DownloadBase}/singularity/MCEG.tar.bz2.md5
-else
-    echo "${URLBase}/MCEG.tar.bz2 has not changed since the last download"
-    echo "- Its md5 sum is ${DownloadBase}/singularity/MCEG.tar.bz2.md5 : " `cat ${DownloadBase}/singularity/MCEG.tar.bz2.md5`
-fi
-
-
-
-echo "--------------------------------------------------------"
 echo "sPHENIX build images"
 echo "--------------------------------------------------------"
 
