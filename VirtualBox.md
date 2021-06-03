@@ -6,7 +6,7 @@ On Windows or MacOS PC/laptop though, it could be tricky to run Singularity dire
 
 1. Install VirtualBox on your host system: [Virtual Box](https://www.virtualbox.org/)
 
-2. Download [sPHENIX Ubuntu 18.04LTS Image](https://sphenix.sdcc.bnl.gov/WWW/user/phnxbld/sPHENIX/Singularity/Fun4AllSingularityDistribution.ova). The MD5SUM is `87a6464dbae831724bc9eb3b508f2646`.
+2. Download [sPHENIX Ubuntu 18.04LTS Image](https://sphenix.sdcc.bnl.gov/WWW/user/phnxbld/sPHENIX/Singularity/Fun4AllSingularityDistribution.ova). The MD5SUM is `f6dc1258689504d6c928efc3b77a66c2`.
 
 This image has CVMFS and Singularity3 preinstalled, enabling direct loading all sPHENIX builds via its OSG cvmfs volume network (i.e. Option-1 of [main documentation](/README.md)).
 
