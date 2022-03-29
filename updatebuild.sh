@@ -87,19 +87,19 @@ fi
 echo "--------------------------------------------------------"
 echo "Singularity image"
 echo "--------------------------------------------------------"
-#echo "${URLBase}/rhic_sl7_ext.simg -> ${DownloadBase}/singularity/"
+#echo "${URLBase}/rhic_sl7_ext.sif -> ${DownloadBase}/singularity/"
 
 mkdir -p ${DownloadBase}/singularity
 
-md5_check ${URLBase}/rhic_sl7_ext.simg.md5 ${DownloadBase}/singularity/rhic_sl7_ext.simg.md5
+md5_check ${URLBase}/rhic_sl7_ext.sif.md5 ${DownloadBase}/singularity/rhic_sl7_ext.sif.md5
 
 if [ $? != 0 ]; then
-    echo "Downloading ${URLBase}/rhic_sl7_ext.simg -> ${DownloadBase}/singularity/ ..."
-    curl -H 'Cache-Control: no-cache' -k ${URLBase}/rhic_sl7_ext.simg > ${DownloadBase}/singularity/rhic_sl7_ext.simg
-    curl -H 'Cache-Control: no-cache' -ks ${URLBase}/rhic_sl7_ext.simg.md5 > ${DownloadBase}/singularity/rhic_sl7_ext.simg.md5
+    echo "Downloading ${URLBase}/rhic_sl7_ext.sif -> ${DownloadBase}/singularity/ ..."
+    curl -H 'Cache-Control: no-cache' -k ${URLBase}/rhic_sl7_ext.sif > ${DownloadBase}/singularity/rhic_sl7_ext.sif
+    curl -H 'Cache-Control: no-cache' -ks ${URLBase}/rhic_sl7_ext.sif.md5 > ${DownloadBase}/singularity/rhic_sl7_ext.sif.md5
 else
-    echo "${URLBase}/rhic_sl7_ext.simg has not changed since the last download"
-    echo "- Its md5 sum is ${DownloadBase}/singularity/rhic_sl7_ext.simg.md5 : " `cat ${DownloadBase}/singularity/rhic_sl7_ext.simg.md5`
+    echo "${URLBase}/rhic_sl7_ext.sif has not changed since the last download"
+    echo "- Its md5 sum is ${DownloadBase}/singularity/rhic_sl7_ext.sif.md5 : " `cat ${DownloadBase}/singularity/rhic_sl7_ext.sif.md5`
 fi
 
 echo "--------------------------------------------------------"
@@ -161,7 +161,7 @@ done
 echo "--------------------------------------------------------"
 echo "Done! To run the sPHENIX container in shell mode:"
 echo ""
-echo "singularity shell -B cvmfs:/cvmfs cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.simg"
+echo "singularity shell -B cvmfs:/cvmfs cvmfs/sphenix.sdcc.bnl.gov/singularity/rhic_sl7_ext.sif"
 echo "source /cvmfs/sphenix.sdcc.bnl.gov/$sysname/opt/sphenix/core/bin/sphenix_setup.sh -n $build"
 echo ""
 echo "More on singularity tutorials: https://www.sylabs.io/docs/"
