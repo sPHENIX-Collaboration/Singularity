@@ -309,12 +309,12 @@ One can also check that the necessary libraries are in the correct place by runn
 ```
 Singularity rhic_sl7_ext.simg:~/Singularity> ldd $OFFLINE_MAIN/lib/libg4detectors.so
 linux-vdso.so.1 =>  (0x00007ffe3b261000)
-	libg4detectors_io.so.0 => /cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/release/release_new/new.2/lib/libg4detectors_io.so.0 (0x00007f7cd6403000)
-	libphparameter.so.0 => /cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/release/release_new/new.2/lib/libphparameter.so.0 (0x00007f7cd61da000)
-	libphg4gdml.so.0 => /cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/release/release_new/new.2/lib/libphg4gdml.so.0 (0x00007f7cd5f94000)
-	libphool.so.0 => /cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/release/release_new/new.2/lib/libphool.so.0 (0x00007f7cd5d58000)
-	libCGAL.so.13 => /cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/release/release_new/new.2/lib/libCGAL.so.13 (0x00007f7cd5b3a000)
-	libSubsysReco.so.0 => /cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/release/release_new/new.2/lib/libSubsysReco.so.0 (0x00007f7cd5937000)
+	libg4detectors_io.so.0 => /cvmfs/sphenix.sdcc.bnl.gov/default/release/release_new/new.2/lib/libg4detectors_io.so.0 (0x00007f7cd6403000)
+	libphparameter.so.0 => /cvmfs/sphenix.sdcc.bnl.gov/default/release/release_new/new.2/lib/libphparameter.so.0 (0x00007f7cd61da000)
+	libphg4gdml.so.0 => /cvmfs/sphenix.sdcc.bnl.gov/default/release/release_new/new.2/lib/libphg4gdml.so.0 (0x00007f7cd5f94000)
+	libphool.so.0 => /cvmfs/sphenix.sdcc.bnl.gov/default/release/release_new/new.2/lib/libphool.so.0 (0x00007f7cd5d58000)
+	libCGAL.so.13 => /cvmfs/sphenix.sdcc.bnl.gov/default/release/release_new/new.2/lib/libCGAL.so.13 (0x00007f7cd5b3a000)
+	libSubsysReco.so.0 => /cvmfs/sphenix.sdcc.bnl.gov/default/release/release_new/new.2/lib/libSubsysReco.so.0 (0x00007f7cd5937000)
 ...
 ```
 

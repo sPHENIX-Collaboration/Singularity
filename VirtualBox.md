@@ -30,7 +30,7 @@ entering the sPHENIX singularity container on /cvmfs/sphenix.opensciencegrid.org
 
 Singularity> source setup.sh 
 .....
-Using the sPHENIX build /cvmfs/sphenix.opensciencegrid.org/x8664_sl7/release/release_new/new.1 (the build version number may be different, it is 1-4)
+Using the sPHENIX build /cvmfs/sphenix.opensciencegrid.org/default/release/release_new/new.1 (the build version number may be different, it is 1-4)
 Local build will be installed at /home/fun4all/install
 
 
