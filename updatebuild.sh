@@ -32,7 +32,7 @@ do
 	    shift # past argument=value
 	    ;;
 	--help|-h|*)
-	    echo "Usage: $0 [--build=<new>] [--sysname=<gcc-8.3|x8664_sl7>] [--source=URL] [--target=directory] [--clean]";
+	    echo "Usage: $0 [--build=<new>] [--sysname=<gcc-8.3|gcc-12.1.0|x8664_sl7>] [--source=URL] [--target=directory] [--clean]";
 	    exit;
 	    shift # past argument with no value
 	    ;;
