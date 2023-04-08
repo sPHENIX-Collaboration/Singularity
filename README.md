@@ -31,7 +31,12 @@ The advantage of **Option-1 Mount sPHENIX CVMFS** is that it mounts all sPHENIX 
 
 2. Install [CVMFS from CERN](https://cernvm.cern.ch/portal/filesystem/quickstart). CERN support build packages under (various Linux distribution and MAC)[https://cernvm.cern.ch/portal/filesystem/downloads].
 
-    - *Note: for loading `/cvmfs/sphenix.opensciencegrid.org` by default, you may need to add `CVMFS_STRICT_MOUNT=no` to `/etc/cvmfs/default.local`.*
+    - *Note: for loading `/cvmfs/sphenix.opensciencegrid.org` by default, you may need to add following to `/etc/cvmfs/default.local`.*
+```
+CVMFS_STRICT_MOUNT=no
+CVMFS_REPOSITORIES=oasis.opensciencegrid.org
+CVMFS_HTTP_PROXY="DIRECT"
+```
 
 3. [**Optional**] *this step only applies to mounting `/cvmfs/sphenix.sdcc.bnl.gov/` in order to reproduce identical CVMFS structure with SDCC/RCF. However, use of `/cvmfs/sphenix.opensciencegrid.org` is more convenient and this step can be skipped*. 
 
