@@ -61,7 +61,7 @@ CVMFS_REPOSITORIES=sphenix.sdcc.bnl.gov
 
 ```
 singularity shell -B /cvmfs:/cvmfs /cvmfs/sphenix.opensciencegrid.org/singularity/rhic_sl7_ext.sif
-source /opt/sphenix/core/bin/sphenix_setup.sh -n    # setup sPHENIX environment in the singularity container shell. Note the shell is bash by default
+ source /cvmfs/sphenix.opensciencegrid.org/default/opt/sphenix/core/bin/sphenix_setup.sh -n    # setup sPHENIX environment in the singularity container shell. Note the shell is bash by default
 root # give a test
 ```
 
